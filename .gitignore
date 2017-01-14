@@ -1,2 +1,4 @@
 .DS_Store
 scripts/secret.js
+results.txt
+chart-data.json
