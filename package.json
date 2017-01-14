@@ -1,0 +1,23 @@
+{
+  "name": "yop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data-mining.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9XDM/YOP.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/9XDM/YOP/issues"
+  },
+  "homepage": "https://github.com/9XDM/YOP#readme",
+  "dependencies": {
+    "firebase": "^3.6.5",
+    "lodash": "^4.17.4"
+  }
+}
