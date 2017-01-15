@@ -23,9 +23,6 @@ a {
 
 //*-- COMPONENTS *--//
 .like-container {
-  float: right;
-  margin-right: 14px;
-  margin-top: 3px;
   .custom-icon {
     color: @main_0;
     font-size: 2.4rem;
@@ -123,7 +120,7 @@ section.intro {
       }
     }
     .created {
-          font-size: 0.9rem;
+      font-size: 0.9rem;
       float: right;
       color: @gray_2;
     }
@@ -176,12 +173,47 @@ section.posts {
         float: right;
       }
     }
+    .like-container {
+      float: right;
+      margin-right: 14px;
+      margin-top: 3px;
+    }
   }
 }
 
 //*-- BLOG DETAIL *--//
-.post.y-card {
+.post-detail.y-card {
   padding: 1.5rem;
+}
+section.post-info {
+  margin: 1rem 0;
+      height: 3rem;
+  .like-container {
+    display: inline-block;
+    float: left;
+  }
+  a.original-url {
+    float: left;
+    margin-left: 3rem;
+    display: inline-block;
+    background: @gray_2;
+    padding: 5px 8px;
+    border-radius: 3px;
+    color: white;
+  }
+  .share-container {
+    span {
+      font-size: 1.6rem;
+      &.icon-facebook {
+        color: #3F53B1;
+        margin-right: 4px;
+      }
+      &.icon-twitter {
+        color: #1DA9F0;
+      }
+    }
+    float: right;
+  }
 }
 
 //*-- FOOTER *--//
