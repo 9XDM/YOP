@@ -43,9 +43,7 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" href="../style/base.css">
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="{% static 'components/html5shiv/dist/html5shiv.js' %}"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="../style/font.css">
 </head>
 <body>
 <header>
@@ -59,11 +57,13 @@
     </ul>
     <div class="navbar-fixed">
         <nav class="nav-main" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="/"
-                                                  class="brand-logo">YOP</a>
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="/" class="brand-logo">
+                    <img src="../img/logo.svg" alt="Kiwi standing on oval">
+                </a>
                 <ul id="nav-top"
                     class="right account-large hide-on-med-and-down">
-                    <li><a href="/login">Login with Github</a></li>
+                    <li><a href="/login">Login with <span class="icon-github-alt"></span></a></li>
                     <li class="user-info"><a class="dropdown-button" href="#!"
                                              data-activates="account-dropdown">
                         <img class="circle responsive-img"
@@ -93,6 +93,10 @@
                         <div class="user">
                             <img class="thumbnail circle responsive-img" src="http://cfile1.uf.tistory.com/image/273BA14B5830BF850BACD5"/>
                             <p>zineeworld</p>
+                            <div class="like-container">
+                                <span class="custom-icon icon-heart2"></span>
+                                <span class="like-number">13</span>
+                            </div>
                         </div>
                         <h3>2016 회고 + 블로그 결산</h3>
                         <div class="summary">V2를 릴리즈하고 여러 기능들이 추가되고 개선되면서 서비스를 만들어 가기에 매우 바빴던 한 해였다. 회사의 메인 서비스 웹/모바일 웹 마크업을 혼자서 전담해서</div>
