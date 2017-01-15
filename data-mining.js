@@ -21,7 +21,7 @@ ref.once('value').then(snapshot => {
     bodyArray.push(data.body);
   });
   bodyArray = _.join(bodyArray, ' ');
-  fs.writeFile('./results.txt', bodyArray, function(err) {
+  return fs.writeFile('./results.txt', bodyArray, function(err) {
     if(err) throw err;
     console.log('File write completed');
   });
