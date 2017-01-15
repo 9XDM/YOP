@@ -3,3 +3,4 @@ scripts/secret.js
 results.txt
 chart-data.json
 node_modules
+bower_components/
