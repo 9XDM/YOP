@@ -1,5 +1,5 @@
 {
- "name": "YOP",
+  "name": "YOP",
   "version": "0.0.1",
   "description": "Year Of Programming",
   "main": "gulpfile.js",
@@ -18,7 +18,8 @@
   "homepage": "https://github.com/9XDM/YOP#readme",
   "dependencies": {
     "firebase": "^3.6.5",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "node-twitter-korean-text": "^1.0.5"
   },
   "devDependencies": {
     "browser-sync": "^2.0",
