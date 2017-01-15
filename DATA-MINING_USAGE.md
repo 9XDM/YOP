@@ -12,15 +12,10 @@ $ node language-chart-data.js
 $ node word-cloud.js
 ```
 
-## File list
-
-* data-mining.js -> Firebase DB에 접근해 모든 post의 글을 불러와 `results.txt`로 저장합니다.
-* language-char-data.js -> results.txt를 분석해서 각 Programming Language의 언급량을 구하고 Chart.js에서 필요한 data양식에 맞춰 `chart-data.json`으로 저장합니다.
-* word-cloud.js -> results.txt를 형태소 분석해서 모든 명사를 Picking한 후 jQCloud에서 필요한 data양식에 맞춰 `nouns.json`으로 저장합니다.
-
 ## data-mining.js
 
 firebase를 이용해서 모든 Posts data의 body를 parsing하고 `results.txt`로 저장합니다.
+단 firebase config 설정을 미리 하셔야합니다.
 
 ## language-char-data.js
 
