@@ -1,5 +1,5 @@
 {
-  "name": "YOP",
+ "name": "YOP",
   "version": "0.0.1",
   "description": "Year Of Programming",
   "main": "gulpfile.js",
@@ -8,17 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/milooy/cartmango.git"
+    "url": "git+https://github.com/9XDM/YOP.git",
+    "author": "YOPYOP"
   },
-  "keywords": [
-    "shopping"
-  ],
-  "author": "YOPYOP",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/9XDM/YOP/issues"
   },
-  "homepage": "https://github.com/9XDM/YOP/",
+  "homepage": "https://github.com/9XDM/YOP#readme",
+  "dependencies": {
+    "firebase": "^3.6.5",
+    "lodash": "^4.17.4"
+  },
   "devDependencies": {
     "browser-sync": "^2.0",
     "gulp": "^3.8.8",
