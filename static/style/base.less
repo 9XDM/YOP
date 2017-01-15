@@ -16,6 +16,9 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
   height: 50px;
   line-height: 50px;
 }
+a {
+  color: @main_1;
+}
 
 
 //*-- NAVIGATION *--//
@@ -43,8 +46,21 @@ nav.nav-main{
   }
   li.write {
     a {
-      background: @main_1;
       color: white;
+      padding-top: 2px;
+      &:hover {
+        background: inherit;
+        span {
+
+          background: @main_0;
+        }
+      }
+      span {
+        transition: @transition;
+        background: @main_1;
+        padding: 10px;
+        border-radius: 50%;
+      }
     }
   }
   a.menu {
