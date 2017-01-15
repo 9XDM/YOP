@@ -83,3 +83,5 @@ $.getJSON("../../chart-data.json", data => {
     }
   })
 })
+
+$(".button-collapse").sideNav();
