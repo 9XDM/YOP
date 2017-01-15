@@ -85,3 +85,10 @@ $.getJSON("../../chart-data.json", data => {
 })
 
 $(".button-collapse").sideNav();
+
+$.getJSON("../../nouns.json", words => {
+  $("#cloud").jQCloud(words, {
+    width: 500,
+    height: 500
+  });
+})
