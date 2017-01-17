@@ -1,3 +1,4 @@
+'use strict';
 const _ = require('lodash');
 const fs = require('fs');
 
@@ -35,7 +36,8 @@ const colorScheme = {
     "Python": "#3572A5", 
     "LISP": "#3fb68b", 
     "Haskell": "#29b544", 
-    "C++": "#f34b7d"
+    "C++": "#f34b7d",
+    "Etc": "#57585B"
 };
 
 _.forEach(countObject, (count, name) => {
@@ -78,19 +80,56 @@ _.forEach(countObject, (count, name) => {
   }
 })
 
+function sortObject(obj) {
+  'use strict';
+  const arr = [];
+  for (let prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      arr.push({
+        'key': prop,
+        'value': obj[prop]
+      });
+    }
+  }
+  arr.sort((a, b) => (b.value - a.value));
+  return arr;
+}
+
+let sortedPickLanguage = _.values(_.pickBy(sortObject(languageObject), o => (o.value != 0)));
+
+console.log(sortedPickLanguage);
+
+if (sortedPickLanguage.length > 7) {
+  let etc = {
+    key: 'etc',
+    value: 0
+  }
+  let removeCount = 0;
+  _.forEach(sortedPickLanguage, (language, index) => {
+    if (index > 6) {
+      etc.value += language.value;
+      removeCount++;
+    }
+  })
+  sortedPickLanguage.splice(7, removeCount);
+  sortedPickLanguage.push(etc);
+}
+
 const data = [];
-_.forEach(languageObject, (value, key) => {
-  data.push(value);
+_.forEach(sortedPickLanguage, (object) => {
+  data.push(object.value);
 })
 
 const backgroundColor = [];
-_.forEach(languageArray, name => {
-  backgroundColor.push(colorScheme[name]);
+const sortedLanguageNames = [];
+_.forEach(sortedPickLanguage, (object) => {
+  sortedLanguageNames.push(object.key)
+  backgroundColor.push(colorScheme[object.key]);
 })
 const hoverBackgroundColor = backgroundColor;
 
 const chartData = {
-    labels: languageArray,
+    labels: sortedLanguageNames,
     datasets: [
       {
         data,
