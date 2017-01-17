@@ -43,7 +43,7 @@ import {FirebaseAuthState} from "angularfire2";
             </a>
           </li>
           <li class="write">
-            <a id="add" class="write-container" href="#">
+            <a id="add" class="write-container" (click)="onWritePostClick()">
               <span class="icon-quill"></span>
             </a>
           </li>
@@ -88,7 +88,6 @@ export class HeaderComponent {
         return it.auth
       })
       .subscribe(user => {
-        console.log(user);
         this.user = user;
         this.isLoggedIn = true;
       });
@@ -100,6 +99,18 @@ export class HeaderComponent {
 
   onLogoutButtonClick() {
     this.loginService.logout();
+  }
+
+  onWritePostClick() {
+    this.loginService.getSession()
+      .take(1)
+      .subscribe(session => {
+        if (session) {
+
+        } else {
+          alert('로그인 해주세요.')
+        }
+      });
   }
 
 }
