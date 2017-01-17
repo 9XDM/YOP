@@ -1,0 +1,188 @@
+body {
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Nanum Barun Gothic", "Malgun Gothic", "돋움", Dotum, sans-serif;
+  background: #f9f9f9;
+  color: #404040;
+  font-weight: 300;
+}
+img {
+  vertical-align: middle;
+}
+nav,
+nav .nav-wrapper i,
+nav a.button-collapse,
+nav a.button-collapse i {
+  height: 50px;
+  line-height: 50px;
+}
+a {
+  color: #ffbb57;
+}
+.like-container .custom-icon {
+  color: #ED264E;
+  font-size: 2.4rem;
+  position: absolute;
+}
+.like-container .like-number {
+  position: relative;
+  top: 5px;
+  left: 12px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
+.y-card {
+  background: white;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+}
+nav.nav-main {
+  background: white;
+  color: #404040;
+  box-shadow: 0 2px 11px 3px rgba(0, 0, 0, 0.03), 0 2px 14px 2px rgba(0, 0, 0, 0);
+}
+nav.nav-main .brand-logo img {
+  width: 70px;
+}
+nav.nav-main ul a {
+  color: #404040;
+}
+nav.nav-main li.login .custom-icon {
+  font-size: 1.5rem;
+  vertical-align: text-bottom;
+}
+nav.nav-main li.user-info img {
+  width: 35px;
+}
+nav.nav-main li.write a {
+  color: white;
+  padding-top: 2px;
+  padding-right: 0;
+}
+nav.nav-main li.write a:hover {
+  background: inherit;
+}
+nav.nav-main li.write a:hover span {
+  background: #ED264E;
+}
+nav.nav-main li.write a span {
+  transition: all 0.3s ease;
+  background: #ffbb57;
+  padding: 10px;
+  border-radius: 50%;
+}
+nav.nav-main a.menu {
+  color: #dedede;
+}
+nav.nav-main a.menu span {
+  font-size: 1.7rem;
+  vertical-align: middle;
+}
+section.intro h1 {
+  font-size: 2.8rem;
+  margin: 2rem 0 0.5rem;
+  font-weight: 300;
+  word-break: keep-all;
+}
+section.intro h2 {
+  font-size: 1.4rem;
+  margin: 0.8rem 0 3rem;
+  color: #9c9c9c;
+  word-break: keep-all;
+}
+section.intro.detail h1 {
+  font-weight: 700;
+}
+section.intro.detail h2 {
+  font-size: 1.3rem;
+}
+section.intro.detail h2 img {
+  width: 30px;
+}
+section.intro.detail .created {
+  font-size: 0.9rem;
+  float: right;
+  color: #cdcdcd;
+}
+section.posts .post > a {
+  display: block;
+  margin: 0.5rem;
+  color: #404040;
+}
+section.posts .post .user img {
+  width: 35px;
+}
+section.posts .post .user p {
+  display: inline-block;
+}
+section.posts .post h3 {
+  font-size: 1.5rem;
+  margin: 0.9rem 0 0.6rem;
+}
+section.posts .post .summary {
+  font-size: 0.9rem;
+  color: #9c9c9c;
+  margin-bottom: 0.5rem;
+}
+section.posts .post img.thumbnail {
+  margin-bottom: 0.3rem;
+}
+section.posts .post .divider {
+  background-color: #f9f9f9;
+  margin: 4.5px -1.3rem;
+  height: 2px;
+}
+section.posts .post .date-container {
+  margin: 10px 0;
+}
+section.posts .post .date-container .year {
+  font-weight: 900;
+  display: inline-block;
+}
+section.posts .post .date-container .created {
+  color: #bcbcbc;
+  font-weight: lighter;
+  display: inline-block;
+  float: right;
+}
+section.posts .post .like-container {
+  float: right;
+  margin-right: 14px;
+  margin-top: 3px;
+}
+.post-detail.y-card {
+  padding: 1.5rem;
+}
+section.post-info {
+  margin: 1rem 0;
+  height: 3rem;
+}
+section.post-info .like-container {
+  display: inline-block;
+  float: left;
+}
+section.post-info a.original-url {
+  float: left;
+  margin-left: 3rem;
+  display: inline-block;
+  background: #cdcdcd;
+  padding: 5px 8px;
+  border-radius: 3px;
+  color: white;
+}
+section.post-info .share-container {
+  float: right;
+}
+section.post-info .share-container span {
+  font-size: 1.6rem;
+}
+section.post-info .share-container span.icon-facebook {
+  color: #3F53B1;
+  margin-right: 4px;
+}
+section.post-info .share-container span.icon-twitter {
+  color: #1DA9F0;
+}
+footer.page-footer {
+  background-color: #2d2d2d;
+  color: white;
+}
