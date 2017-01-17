@@ -97,8 +97,6 @@ function sortObject(obj) {
 
 let sortedPickLanguage = _.values(_.pickBy(sortObject(languageObject), o => (o.value != 0)));
 
-console.log(sortedPickLanguage);
-
 if (sortedPickLanguage.length > 7) {
   let etc = {
     key: 'Etc',
