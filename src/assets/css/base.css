@@ -17,11 +17,6 @@ nav a.button-collapse i {
 a {
   color: #ffbb57;
 }
-.like-container {
-  float: right;
-  margin-right: 14px;
-  margin-top: 3px;
-}
 .like-container .custom-icon {
   color: #ED264E;
   font-size: 2.4rem;
@@ -122,22 +117,11 @@ section.posts .post .user p {
 section.posts .post h3 {
   font-size: 1.5rem;
   margin: 0.9rem 0 0.6rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
 }
 section.posts .post .summary {
   font-size: 0.9rem;
   color: #9c9c9c;
   margin-bottom: 0.5rem;
-  line-height: 1.5em;
-  height: 5.6em;
-  -webkit-line-clamp: 4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
 }
 section.posts .post img.thumbnail {
   margin-bottom: 0.3rem;
@@ -160,8 +144,43 @@ section.posts .post .date-container .created {
   display: inline-block;
   float: right;
 }
-.post.y-card {
+section.posts .post .like-container {
+  float: right;
+  margin-right: 14px;
+  margin-top: 3px;
+}
+.post-detail.y-card {
   padding: 1.5rem;
+}
+section.post-info {
+  margin: 1rem 0;
+  height: 3rem;
+}
+section.post-info .like-container {
+  display: inline-block;
+  float: left;
+}
+section.post-info a.original-url {
+  float: left;
+  margin-left: 3rem;
+  display: inline-block;
+  background: #cdcdcd;
+  padding: 5px 8px;
+  border-radius: 3px;
+  color: white;
+}
+section.post-info .share-container {
+  float: right;
+}
+section.post-info .share-container span {
+  font-size: 1.6rem;
+}
+section.post-info .share-container span.icon-facebook {
+  color: #3F53B1;
+  margin-right: 4px;
+}
+section.post-info .share-container span.icon-twitter {
+  color: #1DA9F0;
 }
 footer.page-footer {
   background-color: #2d2d2d;

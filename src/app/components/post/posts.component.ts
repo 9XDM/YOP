@@ -9,7 +9,7 @@ import {PostService} from "../../service/post.service";
   template: `
       <section class="posts">
             <ul class="row">
-                <li class="post col s12 m6 l4"  *ngFor="let post of posts | async">
+                <li class="post y-card col s12 m6 l4"  *ngFor="let post of posts | async">
                     <a routerLink="post/{{post.$key}}">
                         <div class="user">
                             <img class="thumbnail circle responsive-img" [src]="post.authorPic"/>
