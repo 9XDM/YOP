@@ -1,18 +1,20 @@
-import {Component, AfterViewInit, AfterContentInit} from "@angular/core";
+import {Component, AfterViewInit, AfterContentInit, OnInit} from "@angular/core";
 import {LoginService} from "../../service/login.service";
 import {User} from "../../model/user.model";
 import {FirebaseAuthState} from "angularfire2";
+
+declare const $: any;
+
 @Component({
   selector: 'header-component',
   providers: [LoginService],
   styles: [`
-#user-info, #sign-in-button {
+#user-info, #sign-in-button, #sign-out-button {
   display: none;
 }
-#sign-in-button.activate {
-  display: block;
-}
-#user-info.activate{
+#sign-in-button.activate,
+#user-info.activate,
+#sign-out-button.activate {
   display: block;
 }
 `],
@@ -49,7 +51,7 @@ import {FirebaseAuthState} from "angularfire2";
           </li>
         </ul>
         <ul id="slide-out" class="side-nav">
-          <li>
+          <li id="user-info" [class.activate]="isLoggedIn">
             <div class="userView">
               <div class="background" style="background: #ffbb57"></div>
               <a href="#!user"><img class="circle" [src]="user?.photoURL"></a>
@@ -57,13 +59,13 @@ import {FirebaseAuthState} from "angularfire2";
               <a href="#!email"><span class="white-text email">{{user?.email}}</span></a>
             </div>
           </li>
-          <li><a href="#">Login with <span class="custom-icon icon-github-alt"></span></a></li>
+          <li id="sign-in-button" (click)="onLoginButtonClick()" [class.activate]="!isLoggedIn"><a href="#">Login with <span class="custom-icon icon-github-alt"></span></a></li>
           <li><a href="#!">내가 쓴 회고</a></li>
           <li><a href="#!">내가 좋아한 회고</a></li>
           <li>
             <div class="divider"></div>
           </li>
-          <li><a class="waves-effect" href="#!">Logout</a></li>
+          <li id="sign-out-button" (click)="onLogoutButtonClick()" [class.activate]="isLoggedIn"><a class="waves-effect">Logout</a></li>
         </ul>
         <a href="#" data-activates="slide-out" class="menu button-collapse"><span class="icon-th-menu"></span></a>
       </div>
@@ -74,7 +76,7 @@ import {FirebaseAuthState} from "angularfire2";
 
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   user: firebase.User;
   isLoggedIn = false;
 
@@ -91,6 +93,10 @@ export class HeaderComponent {
         this.user = user;
         this.isLoggedIn = true;
       });
+  }
+
+  ngOnInit() {
+    $(".button-collapse").sideNav();
   }
 
   onLoginButtonClick() {
