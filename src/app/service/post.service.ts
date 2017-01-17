@@ -10,4 +10,8 @@ export class PostService {
   getPosts() {
     return this.af.database.list('/posts')
   }
+
+  getPost(key) {
+    return this.af.database.object('/posts/' + key)
+  }
 }

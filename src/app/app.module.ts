@@ -6,8 +6,11 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import {PostComponent} from "./components/post/post.component";
 import {AngularFireModule} from "angularfire2";
+import {PostDetailComponent} from "./components/post/post.detail.component";
+import {Router, RouterModule} from "@angular/router";
+import {router} from "./app.router";
+import {PostComponent} from "./components/post/posts.component";
 
 // Must export the config
 export const firebaseConfig = {
@@ -24,7 +27,8 @@ export const firebaseConfig = {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PostComponent
+    PostComponent,
+    PostDetailComponent
   ],
 
   // 내가 외부 모듈을 불러올 때
@@ -32,7 +36,8 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    RouterModule.forRoot(router)
   ],
   // 서비스 injection
   providers: [],

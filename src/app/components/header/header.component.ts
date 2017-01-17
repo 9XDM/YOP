@@ -23,12 +23,12 @@ import {FirebaseAuthState} from "angularfire2";
     <li id="menu-my-posts"><a href="#!">내가 쓴 회고</a></li>
     <li id="menu-my-like-posts"><a href="#!">내가 좋아한 회고</a></li>
     <li class="divider"></li>
-    <li id="sign-out-button"><a href="#">로그아웃</a></li>
+    <li id="sign-out-button"><a (click)="onLogoutButtonClick()">로그아웃</a></li>
   </ul>
   <div class="navbar-fixed">
     <nav class="nav-main" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">
+        <a id="logo-container" routerLink="/" class="brand-logo">
           <img src="./assets/img/logo.svg" alt="YOP Logo">
         </a>
         <ul id="nav-top" class="right account-large">
@@ -95,6 +95,10 @@ export class HeaderComponent {
 
   onLoginButtonClick() {
     this.loginService.loginWithGithub()
+  }
+
+  onLogoutButtonClick() {
+    this.loginService.logout();
   }
 
 }

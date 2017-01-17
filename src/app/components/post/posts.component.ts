@@ -10,7 +10,7 @@ import {PostService} from "../../service/post.service";
       <section class="posts">
             <ul class="row">
                 <li class="post col s12 m6 l4"  *ngFor="let post of posts | async">
-                    <a href="http://zinee-world.tistory.com/448">
+                    <a routerLink="post/{{post.$key}}">
                         <div class="user">
                             <img class="thumbnail circle responsive-img" [src]="post.authorPic"/>
                             <p>{{post.author}}</p>
