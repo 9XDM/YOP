@@ -122,11 +122,22 @@ section.posts .post .user p {
 section.posts .post h3 {
   font-size: 1.5rem;
   margin: 0.9rem 0 0.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
 }
 section.posts .post .summary {
   font-size: 0.9rem;
   color: #9c9c9c;
   margin-bottom: 0.5rem;
+  line-height: 1.5em;
+  height: 5.6em;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 section.posts .post img.thumbnail {
   margin-bottom: 0.3rem;
