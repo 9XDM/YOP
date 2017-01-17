@@ -88,7 +88,7 @@ export class HeaderComponent {
         return it.auth
       })
       .subscribe(user => {
-        console.log(user)
+        console.log(user);
         this.user = user;
         this.isLoggedIn = true;
       });

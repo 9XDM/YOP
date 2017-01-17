@@ -6,4 +6,6 @@ export class Post {
   stars;
   title;
   uid;
+  year;
+  original_url;
 }
