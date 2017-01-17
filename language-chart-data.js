@@ -101,7 +101,7 @@ console.log(sortedPickLanguage);
 
 if (sortedPickLanguage.length > 7) {
   let etc = {
-    key: 'etc',
+    key: 'Etc',
     value: 0
   }
   let removeCount = 0;
