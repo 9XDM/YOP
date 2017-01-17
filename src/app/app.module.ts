@@ -19,18 +19,22 @@ export const firebaseConfig = {
 };
 
 @NgModule({
+  // 어떤 컴포넌트를 사용할 것인지.
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     PostComponent
   ],
+
+  // 내가 외부 모듈을 불러올 때
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
+  // 서비스 injection
   providers: [],
   bootstrap: [AppComponent]
 })

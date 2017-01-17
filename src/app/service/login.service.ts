@@ -4,15 +4,15 @@ import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable()
 export class LoginService {
-  private behaviorSubject: BehaviorSubject<firebase.User> = new BehaviorSubject<firebase.User>(null);
+  private behaviorSubject: BehaviorSubject<FirebaseAuthState> = new BehaviorSubject<FirebaseAuthState>(null);
 
   constructor(private af: AngularFire) {
     this.af.auth.subscribe(authState => {
-      this.behaviorSubject.next(authState.auth)
+      this.behaviorSubject.next(authState)
     });
   }
 
-  loginStateChange(): Observable<firebase.User>{
+  loginStateChange(): Observable<FirebaseAuthState>{
     return this.behaviorSubject.asObservable()
   }
 
