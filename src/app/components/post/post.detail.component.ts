@@ -14,8 +14,8 @@ declare const marked: any;
  <section class="intro detail">
             <h1>{{(post | async)?.title}}</h1>
             <h2>
-                <img class="thumbnail circle responsive-img" src="http://cfile1.uf.tistory.com/image/273BA14B5830BF850BACD5"/>
-                개발자 <a href="https://github.com/qkraudghgh">zineeworld</a>의 <span class="year">2016</span>년
+                <img class="thumbnail circle responsive-img" src="{{(post | async)?.authorPic}}"/>
+                개발자 <a href="https://github.com/qkraudghgh">{{(post | async)?.author}}</a>의 <span class="year">{{(post | async)?.year}}</span>년
                 <span class="created">2017-01-14</span>
             </h2>
         </section>
@@ -26,7 +26,7 @@ declare const marked: any;
                 <span class="custom-icon icon-heart2"></span>
                 <span class="like-number">{{(post | async)?.starCount}}</span>
             </div>
-            <a class="original-url" href="http://zinee-world.tistory.com/448">원문으로 읽기</a>
+            <a class="original-url" href="{{(post | async)?.original_url}}">원문으로 읽기</a>
             <div class="share-container">
                 <span class="icon-facebook"></span>
                 <span class="icon-twitter"></span>
