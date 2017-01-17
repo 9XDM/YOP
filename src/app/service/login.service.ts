@@ -12,7 +12,7 @@ export class LoginService {
     });
   }
 
-  loginStateChange(): Observable<FirebaseAuthState>{
+  loginStateChange(): Observable<FirebaseAuthState> {
     return this.behaviorSubject.asObservable()
   }
 
@@ -21,6 +21,10 @@ export class LoginService {
       provider: AuthProviders.Github,
       method: AuthMethods.Popup,
     });
+  }
+
+  getSession() {
+    return this.af.auth;
   }
 
   logout() {

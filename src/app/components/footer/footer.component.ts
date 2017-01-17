@@ -4,7 +4,7 @@ import {Component} from "@angular/core";
   template: `
     <footer class="page-footer">
       <div class="container">
-          <div class="">Made with ♥️️ <a href="https://github.com/qkraudghgh">@qkraudghgh</a>, <a href="https://github.com/milooy">@milooy</a>, <a href="https://github.com/Leop0ld">@Leop0ld</a>, <a href="https://github.com/kyeongwan">@kyeongwan</a> <a href="https://github.com/kangsLee">@river-mountain</a> </div>
+          <div class="">Made with ♥️️ <a href="https://github.com/qkraudghgh">@qkraudghgh</a>, <a href="https://github.com/milooy">@milooy</a>, <a href="https://github.com/Leop0ld">@Leop0ld</a>, <a href="https://github.com/kyeongwan">@kyeongwan</a>, <a href="https://github.com/kangsLee">@river-mountain</a> </div>
       </div>
       <div class="footer-copyright">
           <div class="container">

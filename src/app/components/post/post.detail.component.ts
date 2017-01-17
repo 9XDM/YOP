@@ -4,6 +4,9 @@ import {PostService} from "../../service/post.service";
 import {FirebaseObjectObservable} from "angularfire2";
 import {Post} from "../../model/post.model";
 
+declare const $: any;
+declare const marked: any;
+
 @Component({
   selector: 'post-detail-component',
   providers: [PostService],
@@ -17,7 +20,6 @@ import {Post} from "../../model/post.model";
             </h2>
         </section>
         <section class="post-detail y-card">
-            {{(post | async)?.body}}
         </section>
         <section class="post-info">
             <div class="like-container">
@@ -44,6 +46,10 @@ export class PostDetailComponent implements OnInit {
   ngOnInit() {
     this.router.params.subscribe(params => {
       this.post = this.postService.getPost(params['key'])
+    });
+
+    this.post.subscribe(post => {
+      $(".post-detail")[0].innerHTML = marked(post.body);
     })
   }
 }
