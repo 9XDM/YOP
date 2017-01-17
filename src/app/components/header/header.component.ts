@@ -81,13 +81,14 @@ export class HeaderComponent {
   constructor(private loginService: LoginService) {
     loginService.loginStateChange()
       .filter(it => {
+        this.isLoggedIn = false;
         return it !== null;
       })
       .map((it: FirebaseAuthState) => {
         return it.auth
       })
-      .take(1)
       .subscribe(user => {
+        console.log(user)
         this.user = user;
         this.isLoggedIn = true;
       });

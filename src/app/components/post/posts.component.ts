@@ -2,6 +2,7 @@ import {Component} from "@angular/core";
 import {Post} from "../../model/post.model";
 import {FirebaseListObservable} from "angularfire2";
 import {PostService} from "../../service/post.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'post-component',
@@ -36,9 +37,9 @@ import {PostService} from "../../service/post.service";
 
 
 export class PostComponent {
-  posts: FirebaseListObservable<Post[]>;
+  posts: Observable<Post[]>;
 
-  constructor(private postService: PostService){
-    this.posts = postService.getPosts();
+  constructor(private postService: PostService) {
+    this.posts = postService.getPosts().distinctUntilChanged();
   }
 }
