@@ -7,8 +7,13 @@
   "angular-cli": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/milooy/cartmango.git"
+    "url": "git+https://github.com/9XDM/YOP.git",
+    "author": "YOPYOP"
   },
+  "bugs": {
+    "url": "https://github.com/9XDM/YOP/issues"
+  },
+  "homepage": "https://github.com/9XDM/YOP#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,6 +24,9 @@
   },
   "private": true,
   "dependencies": {
+    "firebase": "^3.6.5",
+    "lodash": "^4.17.4",
+    "node-twitter-korean-text": "^1.0.5",
     "@angular/common": "^2.3.1",
     "@angular/compiler": "^2.3.1",
     "@angular/core": "^2.3.1",
@@ -51,7 +59,7 @@
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
     "typescript": "~2.0.3",
-  "browser-sync": "^2.0",
+    "browser-sync": "^2.0",
     "gulp": "^3.8.8",
     "gulp-autoprefixer": "^1.0.1",
     "gulp-imagemin": "^2.2.0",
