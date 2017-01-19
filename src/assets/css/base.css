@@ -35,6 +35,11 @@ a {
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
   border-radius: 3px;
 }
+img.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
 nav.nav-main {
   background: white;
   color: #404040;
@@ -153,7 +158,7 @@ section.posts .post .like-container {
   padding: 1.5rem;
 }
 section.post-info {
-  margin: 1rem 0;
+  margin: 2.1rem 0 -0.9rem;
   height: 3rem;
 }
 section.post-info .like-container {
@@ -181,6 +186,65 @@ section.post-info .share-container span.icon-facebook {
 }
 section.post-info .share-container span.icon-twitter {
   color: #1DA9F0;
+}
+section.comment {
+  padding: 1.5rem 1rem;
+  margin-top: 20px;
+}
+section.comment .comment-post form .wrapper {
+  display: -webkit-flex;
+  display: flex;
+}
+section.comment .comment-post form .wrapper textarea {
+  -webkit-flex: 1;
+  flex: 1;
+  padding: 0 1.3rem;
+  height: 3rem;
+  padding-left: 1rem;
+  border: none;
+  border-radius: 3rem;
+  word-wrap: break-word;
+  resize: none;
+}
+section.comment .comment-post form .wrapper textarea:focus {
+  outline: none !important;
+  border: none;
+}
+section.comment .comment-post form .wrapper input {
+  width: 4.4rem;
+  height: 2.6rem;
+  border-radius: 1px;
+  border: 1px solid #ffbb57;
+  background: none;
+  color: #ffbb57;
+}
+section.comment .comment-post form .wrapper input:hover {
+  background: #ffcc80;
+  color: white;
+  transition: background 0.2s ease;
+}
+section.comment .comment-list .comment {
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 1.1rem;
+  margin-top: 1.1rem;
+  border-top: 2px solid #f6f6f6;
+}
+section.comment .comment-list .comment .comment-wrapper {
+  -webkit-flex: 1;
+  flex: 1;
+  margin-left: 0.8rem;
+}
+section.comment .comment-list .comment .comment-wrapper .nickname {
+  display: inline-block;
+  font-weight: bolder;
+  color: #ffbb57;
+  margin-right: 2px;
+}
+section.comment .comment-list .comment .comment-wrapper .date {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #cdcdcd;
 }
 footer.page-footer {
   background-color: #2d2d2d;

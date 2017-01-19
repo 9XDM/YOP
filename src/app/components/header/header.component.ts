@@ -1,13 +1,12 @@
-import {Component, AfterViewInit, AfterContentInit, OnInit} from "@angular/core";
-import {LoginService} from "../../service/login.service";
-import {User} from "../../model/user.model";
+import {Component, OnInit} from "@angular/core";
 import {FirebaseAuthState} from "angularfire2";
+import {AuthService} from "../../service/auth.service";
 
 declare const $: any;
 
 @Component({
   selector: 'header-component',
-  providers: [LoginService],
+  providers: [AuthService],
   styles: [`
 #user-info, #sign-in-button, #sign-out-button {
   display: none;
@@ -80,8 +79,8 @@ export class HeaderComponent implements OnInit{
   user: firebase.User;
   isLoggedIn = false;
 
-  constructor(private loginService: LoginService) {
-    loginService.loginStateChange()
+  constructor(private authService: AuthService) {
+    authService.loginStateChange()
       .filter(it => {
         this.isLoggedIn = false;
         return it !== null;
@@ -100,15 +99,15 @@ export class HeaderComponent implements OnInit{
   }
 
   onLoginButtonClick() {
-    this.loginService.loginWithGithub()
+    this.authService.loginWithGithub()
   }
 
   onLogoutButtonClick() {
-    this.loginService.logout();
+    this.authService.logout();
   }
 
   onWritePostClick() {
-    this.loginService.getSession()
+    this.authService.getSession()
       .take(1)
       .subscribe(session => {
         if (session) {

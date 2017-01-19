@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable()
-export class LoginService {
+export class AuthService {
   private behaviorSubject: BehaviorSubject<FirebaseAuthState> = new BehaviorSubject<FirebaseAuthState>(null);
 
   constructor(private af: AngularFire) {

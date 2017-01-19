@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {AngularFireModule} from "angularfire2";
-import {PostDetailComponent} from "./components/post/post.detail.component";
+import {PostDetailComponent} from "./components/post/detail/post.detail.component";
 import {Router, RouterModule} from "@angular/router";
 import {router} from "./app.router";
-import {PostComponent} from "./components/post/posts.component";
+import {PostListComponent} from "./components/post/list/post.list.component";
+import {AuthService} from "./service/auth.service";
 
 // Must export the config
 export const firebaseConfig = {
@@ -27,7 +28,7 @@ export const firebaseConfig = {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    PostComponent,
+    PostListComponent,
     PostDetailComponent
   ],
 
@@ -40,7 +41,7 @@ export const firebaseConfig = {
     RouterModule.forRoot(router)
   ],
   // 서비스 injection
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
