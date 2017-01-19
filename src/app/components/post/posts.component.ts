@@ -8,6 +8,10 @@ import {Observable} from "rxjs";
   selector: 'post-component',
   providers: [PostService],
   template: `
+  <div style="max-width: 400px;">
+  <canvas id="myChart" width="400"></canvas>
+  </div>
+  <div id="cloud"></div>
       <section class="posts">
             <ul class="row">
                 <li class="post y-card col s12 m6 l4"  *ngFor="let post of posts | async">
