@@ -41,6 +41,5 @@ testem.log
 scripts/secret.js
 results.txt
 chart-data.json
-bower_components/
 nouns.json
 Thumbs.db
