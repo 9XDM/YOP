@@ -37,4 +37,9 @@ testem.log
 
 #System Files
 .DS_Store
+
+scripts/secret.js
+results.txt
+chart-data.json
+nouns.json
 Thumbs.db

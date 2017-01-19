@@ -1,0 +1,55 @@
+{
+  "name": "jqcloud2",
+  "version": "2.0.2",
+  "homepage": "https://github.com/mistic100/jQCloud",
+  "description": "jQuery plugin for drawing neat word clouds that actually look like clouds",
+  "authors": [
+    {
+      "name": "Luca Ongaro",
+      "homepage": "http://www.lucaongaro.eu"
+    },
+    {
+      "name": "Daniel White",
+      "homepage": "http://www.developerdan.com"
+    },
+    {
+      "name": "Damien \"Mistic\" Sorel",
+      "homepage": "http://www.strangeplanet.fr"
+    }
+  ],
+  "main": [
+    "dist/jqcloud.js",
+    "dist/jqcloud.css"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0"
+  },
+  "keywords": [
+    "cloud",
+    "jquery",
+    "keyword",
+    "tag"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mistic100/jQCloud.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "2.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.2",
+    "commit": "e9c99ba7d68686a2f834ecd05bff3f5bf5157f7d"
+  },
+  "_source": "https://github.com/mistic100/jQCloud.git",
+  "_target": "^2.0.2",
+  "_originalSource": "jqcloud2",
+  "_direct": true
+}
