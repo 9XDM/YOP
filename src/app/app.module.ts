@@ -14,6 +14,7 @@ import {router} from "./app.router";
 import {PostListComponent} from "./components/post/list/post.list.component";
 import {AuthService} from "./service/auth.service";
 import {RemoveMarkdownPipe} from "./pipe/remove-markdown.pipe";
+import {ReversePipe} from "./pipe/reverse.pipe";
 
 // Must export the config
 export const firebaseConfig = {
@@ -33,6 +34,7 @@ export const firebaseConfig = {
     PostListComponent,
     PostDetailComponent,
     RemoveMarkdownPipe,
+    ReversePipe,
     PostWriteComponent
   ],
 

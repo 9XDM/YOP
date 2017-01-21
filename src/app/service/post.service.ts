@@ -19,8 +19,7 @@ export class PostService {
   constructor(private af: AngularFire) {
     this.af.database.list('/posts', {
       query: { // does not work
-        orderByChild: 'createDate',
-        limitToLast: 9,
+        limitToFirst: 9,
       }
     }).subscribe(posts => {
       this.behaviorSubject.next(posts);

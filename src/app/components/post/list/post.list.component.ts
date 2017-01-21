@@ -1,9 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Post} from "../../../model/post.model";
-import {FirebaseListObservable} from "angularfire2";
 import {PostService} from "../../../service/post.service";
 import {Observable} from "rxjs";
-import {RemoveMarkdownPipe} from "../../../pipe/remove-markdown.pipe";
 
 
 declare const $: any;
@@ -16,9 +14,11 @@ declare const $: any;
 
 
 export class PostListComponent {
-  posts: Observable<Post[]>;
+  posts: Post[];
 
   constructor(private postService: PostService) {
-    this.posts = postService.getPosts().distinctUntilChanged();
+    postService.getPosts().distinctUntilChanged().subscribe(posts => {
+      this.posts = posts;
+    });
   }
 }
