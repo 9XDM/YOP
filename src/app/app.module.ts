@@ -8,6 +8,7 @@ import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {AngularFireModule} from "angularfire2";
 import {PostDetailComponent} from "./components/post/detail/post.detail.component";
+import {PostWriteComponent} from "./components/post/write/post.write.component";
 import {Router, RouterModule} from "@angular/router";
 import {router} from "./app.router";
 import {PostListComponent} from "./components/post/list/post.list.component";
@@ -31,7 +32,8 @@ export const firebaseConfig = {
     FooterComponent,
     PostListComponent,
     PostDetailComponent,
-    RemoveMarkdownPipe
+    RemoveMarkdownPipe,
+    PostWriteComponent
   ],
 
   // 내가 외부 모듈을 불러올 때

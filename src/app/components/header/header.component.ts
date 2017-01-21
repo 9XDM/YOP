@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FirebaseAuthState} from "angularfire2";
 import {AuthService} from "../../service/auth.service";
+import {Router} from "@angular/router";
 
 declare const $: any;
 
@@ -79,7 +80,7 @@ export class HeaderComponent implements OnInit{
   user: firebase.User;
   isLoggedIn = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
     authService.loginStateChange()
       .filter(it => {
         this.isLoggedIn = false;
@@ -114,9 +115,9 @@ export class HeaderComponent implements OnInit{
       .take(1)
       .subscribe(session => {
         if (session) {
-
+          this.router.navigate(['/write/new']);
         } else {
-          alert('로그인 해주세요.')
+          alert('로그인 해주세요.');
         }
       });
   }
