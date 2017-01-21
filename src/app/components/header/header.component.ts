@@ -8,7 +8,7 @@ declare const $: any;
   selector: 'header-component',
   providers: [AuthService],
   styles: [`
-#user-info, #sign-in-button, #sign-out-button {
+#user-info, #sign-in-button {
   display: none;
 }
 #sign-in-button.activate,
@@ -103,7 +103,10 @@ export class HeaderComponent implements OnInit{
   }
 
   onLogoutButtonClick() {
-    this.authService.logout();
+    const response = confirm("정말로 로그아웃 하시겠습니까?");
+    if (response == true) {
+      this.authService.logout();
+    }
   }
 
   onWritePostClick() {
