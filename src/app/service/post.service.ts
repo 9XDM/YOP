@@ -18,8 +18,8 @@ export class PostService {
 
   constructor(private af: AngularFire) {
     this.af.database.list('/posts', {
-      query: { // does not work
-        limitToFirst: 9,
+      query: {
+        orderByChild: 'createDate'
       }
     }).subscribe(posts => {
       this.behaviorSubject.next(posts);
@@ -39,7 +39,7 @@ export class PostService {
   }
 
   isLiked(postKey, user: User) {
-    return this.af.database.object('/posts/' + postKey + '/stars/' + user.uid)
+    return this.af.database.object(`/posts/'${postKey}/stars/${user.uid}`)
   }
 
   writeComment(postKey, text, user: User) {
@@ -53,7 +53,7 @@ export class PostService {
   }
 
   toggleLike(postKey, isLiked, user: User) {
-    return this.af.database.object('/posts/' + postKey + '/stars/' + user.uid).set(isLiked)
+    return this.af.database.object(`/posts/${postKey}/stars/${user.uid}`).set(isLiked)
   }
 
   writePost(title, body, originalURL, user: User) {
