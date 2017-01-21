@@ -8,12 +8,21 @@ declare namespace firebase.database.ServerValue {
   const TIMESTAMP: any
 }
 
+declare namespace firebase.database.Reference {
+    const transaction;
+}
+
 @Injectable()
 export class PostService {
   private behaviorSubject: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>(null);
 
   constructor(private af: AngularFire) {
-    this.af.database.list('/posts').subscribe(posts => {
+    this.af.database.list('/posts', {
+      query: { // does not work
+        orderByChild: 'createDate',
+        limitToLast: 9,
+      }
+    }).subscribe(posts => {
       this.behaviorSubject.next(posts);
     });
   }
@@ -30,7 +39,11 @@ export class PostService {
     return this.af.database.list(`/post-comments/${postKey}`)
   }
 
-  writeComment(postKey, text, user:User) {
+  isLiked(postKey, user: User) {
+    return this.af.database.object('/posts/' + postKey + '/stars/' + user.uid)
+  }
+
+  writeComment(postKey, text, user: User) {
     return this.af.database.list(`/post-comments/${postKey}`).push({
       author: user.displayName,
       authorPic: user.photoURL,
@@ -40,7 +53,11 @@ export class PostService {
     })
   }
 
-  writePost(title, body, user:User) {
+  toggleLike(postKey, isLiked, user: User) {
+    return this.af.database.object('/posts/' + postKey + '/stars/' + user.uid).set(isLiked)
+  }
+
+  writePost(title, body, user: User) {
     return this.af.database.list('/posts/').push({
       author: user.displayName,
       authorPic: user.photoURL,

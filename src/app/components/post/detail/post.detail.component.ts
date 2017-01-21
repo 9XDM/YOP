@@ -22,7 +22,7 @@ export class PostDetailComponent implements OnInit {
   comments: FirebaseListObservable<Comment[]>;
   user: User;
 
-  isStared: Number;
+  isLiked: boolean;
   postKey: String;
   commentBody: String;
 
@@ -46,6 +46,9 @@ export class PostDetailComponent implements OnInit {
       .take(1)
       .subscribe(session => {
         this.user = session.auth;
+        this.postService.isLiked(this.postKey, this.user).subscribe(isLiked => {
+          this.isLiked = isLiked
+        })
       });
   }
 
@@ -53,8 +56,10 @@ export class PostDetailComponent implements OnInit {
     this.postService.writeComment(this.postKey, this.commentBody, this.user);
   }
 
-  /*onLikeBtnClick() {
-    this.postService.toggleLike(this.postKey, this.user);
-  }*/
+  onLikeBtnClick() {
+    this.isLiked = !this.isLiked;
+    console.log(this.isLiked);
 
+    this.postService.toggleLike(this.postKey, this.isLiked, this.user);
+  }
 }
