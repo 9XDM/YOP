@@ -56,4 +56,5 @@ export class PostDetailComponent implements OnInit {
   /*onLikeBtnClick() {
     this.postService.toggleLike(this.postKey, this.user);
   }*/
+
 }

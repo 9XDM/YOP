@@ -1,0 +1,8 @@
+<section class="write">
+  <input [(ngModel)]="title"/>
+</section>
+<section class="post-detail y-card">
+  <input *ngIf="!isModified" type="button" value="게시" (click)="onWriteBtnClick()"/>
+  <input *ngIf="isModified" type="button" value="수정" (click)="onModifyBtnClick()"/>
+  <textarea id="writePost"></textarea>
+</section>

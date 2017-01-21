@@ -23,20 +23,39 @@ export class PostService {
   }
 
   getPost(postKey) {
-    return this.af.database.object('/posts/' + postKey)
+    return this.af.database.object(`/posts/${postKey}`)
   }
 
   getComments(postKey) {
-    return this.af.database.list('/post-comments/' + postKey)
+    return this.af.database.list(`/post-comments/${postKey}`)
   }
 
   writeComment(postKey, text, user:User) {
-    return this.af.database.list('/post-comments/' + postKey).push({
+    return this.af.database.list(`/post-comments/${postKey}`).push({
       author: user.displayName,
       authorPic: user.photoURL,
       text: text,
       uid: user.uid,
       createDate: firebase.database.ServerValue.TIMESTAMP,
+    })
+  }
+
+  writePost(title, body, user:User) {
+    return this.af.database.list('/posts/').push({
+      author: user.displayName,
+      authorPic: user.photoURL,
+      uid: user.uid,
+      createDate: firebase.database.ServerValue.TIMESTAMP,
+      starCount: 0,
+      title,
+      body
+    })
+  }
+
+  modifyPost(postKey, title, body) {
+    return this.af.database.object(`/posts/${postKey}`).update({
+      title,
+      body
     })
   }
 }
