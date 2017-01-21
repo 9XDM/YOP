@@ -8,4 +8,5 @@ export class Post {
   uid;
   year;
   original_url;
+  createDate;
 }
