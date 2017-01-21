@@ -53,7 +53,7 @@ export class PostDetailComponent implements OnInit {
     this.postService.writeComment(this.postKey, this.commentBody, this.user);
   }
 
-  onLikeBtnClick() {
+  /*onLikeBtnClick() {
     this.postService.toggleLike(this.postKey, this.user);
-  }
+  }*/
 }

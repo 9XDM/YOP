@@ -12,6 +12,7 @@ import {Router, RouterModule} from "@angular/router";
 import {router} from "./app.router";
 import {PostListComponent} from "./components/post/list/post.list.component";
 import {AuthService} from "./service/auth.service";
+import {RemoveMarkdownPipe} from "./pipe/remove-markdown.pipe";
 
 // Must export the config
 export const firebaseConfig = {
@@ -29,7 +30,8 @@ export const firebaseConfig = {
     HeaderComponent,
     FooterComponent,
     PostListComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    RemoveMarkdownPipe
   ],
 
   // 내가 외부 모듈을 불러올 때

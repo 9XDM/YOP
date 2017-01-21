@@ -15,7 +15,7 @@
           </div>
         </div>
         <h3>{{post.title}}</h3>
-        <div class="summary">{{post.body}}</div>
+        <div class="summary">{{post.body | removeMd}}</div>
         <img class="thumbnail responsive-img" src="http://cfile30.uf.tistory.com/image/242BE13D587613BD236A4E"/>
         <div class="divider"></div>
         <div class="date-container">
