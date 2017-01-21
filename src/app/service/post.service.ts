@@ -2,6 +2,11 @@ import {AngularFire, AuthProviders, AuthMethods, FirebaseAuthState, FirebaseList
 import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Post} from "../model/post.model";
+import {User} from "../model/user.model";
+
+declare namespace firebase.database.ServerValue {
+  const TIMESTAMP: any
+}
 
 @Injectable()
 export class PostService {
@@ -17,7 +22,21 @@ export class PostService {
     return this.behaviorSubject.asObservable();
   }
 
-  getPost(key) {
-    return this.af.database.object('/posts/' + key)
+  getPost(postKey) {
+    return this.af.database.object('/posts/' + postKey)
+  }
+
+  getComments(postKey) {
+    return this.af.database.list('/post-comments/' + postKey)
+  }
+
+  writeComment(postKey, text, user:User) {
+    return this.af.database.list('/post-comments/' + postKey).push({
+      author: user.displayName,
+      authorPic: user.photoURL,
+      text: text,
+      uid: user.uid,
+      createDate: firebase.database.ServerValue.TIMESTAMP,
+    })
   }
 }

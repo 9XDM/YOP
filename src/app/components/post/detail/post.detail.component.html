@@ -11,32 +11,31 @@
 <section class="post-info">
   <div class="like-container">
     <span class="custom-icon icon-heart2"></span>
-    <span class="like-number">{{(post | async)?.starCount}}</span>
+    <span class="like-number" [class.active]="isStared">{{(post | async)?.starCount}}</span>
   </div>
   <a class="original-url" href="{{(post | async)?.original_url}}">원문으로 읽기</a>
   <div class="share-container">
     <span class="icon-facebook"></span>
     <span class="icon-twitter"></span>
-
   </div>
 </section>
 <section class="comment y-card">
   <div class="comment-post">
-    <form id="comment" method="POST">
+    <div id="comment">
       <div class="wrapper">
         <img class="avatar" [src]="user?.photoURL"/>
-        <textarea placeholder="생각을 남겨주세요"></textarea>
-        <input type="submit" value="게시" />
+        <textarea placeholder="생각을 남겨주세요" [(ngModel)]="commentBody"></textarea>
+        <input type="button" value="게시" (click)="onWriteBtnClick()"/>
       </div>
-    </form>
+    </div>
   </div>
   <div class="comment-list">
-    <div class="comment">
-      <img class="avatar" src="http://cfile1.uf.tistory.com/image/273BA14B5830BF850BACD5"/>
+    <div class="comment" *ngFor="let comment of comments | async">
+      <img class="avatar" [src]="comment.authorPic"/>
       <div class="comment-wrapper">
-        <div class="nickname">zineeworld</div>
-        <div class="date">2017-01-24</div>
-        <div class="comment-text">혹시 디자인이나 마크업쪽은 따로 배우셨나요? 아니면 독학하셨나요?</div>
+        <div class="nickname">{{comment.author}}</div>
+        <div class="date">{{comment.createDate | date: 'yyyy-MM-dd'}}</div>
+        <div class="comment-text">{{comment.text}}</div>
       </div>
     </div>
   </div>

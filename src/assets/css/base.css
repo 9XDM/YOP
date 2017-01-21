@@ -191,11 +191,11 @@ section.comment {
   padding: 1.5rem 1rem;
   margin-top: 20px;
 }
-section.comment .comment-post form .wrapper {
+section.comment .comment-post div .wrapper {
   display: -webkit-flex;
   display: flex;
 }
-section.comment .comment-post form .wrapper textarea {
+section.comment .comment-post div .wrapper textarea {
   -webkit-flex: 1;
   flex: 1;
   padding: 0 1.3rem;
@@ -206,11 +206,11 @@ section.comment .comment-post form .wrapper textarea {
   word-wrap: break-word;
   resize: none;
 }
-section.comment .comment-post form .wrapper textarea:focus {
+section.comment .comment-post div .wrapper textarea:focus {
   outline: none !important;
   border: none;
 }
-section.comment .comment-post form .wrapper input {
+section.comment .comment-post div .wrapper input {
   width: 4.4rem;
   height: 2.6rem;
   border-radius: 1px;
@@ -218,7 +218,7 @@ section.comment .comment-post form .wrapper input {
   background: none;
   color: #ffbb57;
 }
-section.comment .comment-post form .wrapper input:hover {
+section.comment .comment-post div .wrapper input:hover {
   background: #ffcc80;
   color: white;
   transition: background 0.2s ease;
