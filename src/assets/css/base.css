@@ -103,6 +103,11 @@ section.intro.detail h2 {
 section.intro.detail h2 img {
   width: 30px;
 }
+section.intro.detail .edit {
+  font-size: 1.1rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
 section.intro.detail .created {
   font-size: 0.9rem;
   float: right;

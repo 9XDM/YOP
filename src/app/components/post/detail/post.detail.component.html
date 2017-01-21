@@ -3,6 +3,7 @@
   <h2>
     <img class="thumbnail circle responsive-img" src="{{(post | async)?.authorPic}}"/>
     개발자 <a>{{(post | async)?.author}}</a>의 <span class="year">{{(post | async)?.year}}</span>년
+    <span class="edit" *ngIf="isAuth" (click)="onMoveToModified()">수정하기</span>
     <span class="created">{{(post | async)?.createDate | date:"yyyy-MM-dd"}}</span>
   </h2>
 </section>

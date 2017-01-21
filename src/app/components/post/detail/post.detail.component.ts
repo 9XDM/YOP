@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../../../service/post.service";
 import {FirebaseObjectObservable, FirebaseListObservable} from "angularfire2";
 import {Comment} from "../../../model/comment.model";
@@ -23,23 +23,21 @@ export class PostDetailComponent implements OnInit {
   user: User;
 
   isLiked: boolean;
+  isAuth: boolean = false;
   postKey: String;
   commentBody: String;
 
   constructor(private router: ActivatedRoute,
               private postService: PostService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private route: Router) {
   }
 
   ngOnInit() {
     this.router.params.subscribe(params => {
       this.postKey = params['key'];
       this.post = this.postService.getPost(params['key']);
-      this.comments = this.postService.getComments(params['key'])
-    });
-
-    this.post.subscribe(post => {
-      $(".post-detail")[0].innerHTML = marked(post.body);
+      this.comments = this.postService.getComments(params['key']);
     });
 
     this.authService.getSession()
@@ -48,7 +46,15 @@ export class PostDetailComponent implements OnInit {
         this.user = session.auth;
         this.postService.isLiked(this.postKey, this.user).subscribe(isLiked => {
           this.isLiked = isLiked
-        })
+        });
+
+        this.post.subscribe(post => {
+          $(".post-detail")[0].innerHTML = marked(post.body);
+
+          if (post.uid === session.uid) {
+            this.isAuth = true;
+          }
+        });
       });
   }
 
@@ -61,5 +67,9 @@ export class PostDetailComponent implements OnInit {
     console.log(this.isLiked);
 
     this.postService.toggleLike(this.postKey, this.isLiked, this.user);
+  }
+
+  onMoveToModified() {
+    this.route.navigate([`/write/${this.postKey}`]);
   }
 }
