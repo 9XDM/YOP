@@ -7,14 +7,13 @@ var gulp = require('gulp'),
 
 gulp.task('less', function() {
     console.log("less compiled");
-    return gulp.src('./static/style/base.less')
+    return gulp.src('./src/assets/css/base.less')
         .pipe(less().on('error', function(err) {
             console.log(err);
         }))
-        .pipe(minifyCSS({keepBreaks: false}))
-        .pipe(gulp.dest('./static/style'));
+        .pipe(gulp.dest('./src/assets/css'));
 });
 
 gulp.task('default', ['less'], function() {
-    gulp.watch('./static/style/*.less', ['less']);
+    gulp.watch('./src/assets/css/*.less', ['less']);
 });
