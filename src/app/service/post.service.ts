@@ -56,7 +56,7 @@ export class PostService {
     return this.af.database.object('/posts/' + postKey + '/stars/' + user.uid).set(isLiked)
   }
 
-  writePost(title, body, user: User) {
+  writePost(title, body, originalURL, user: User) {
     return this.af.database.list('/posts/').push({
       author: user.displayName,
       authorPic: user.photoURL,
@@ -64,14 +64,16 @@ export class PostService {
       createDate: firebase.database.ServerValue.TIMESTAMP,
       starCount: 0,
       title,
-      body
+      body,
+      originalURL
     })
   }
 
-  modifyPost(postKey, title, body) {
+  modifyPost(postKey, title, body, originalURL) {
     return this.af.database.object(`/posts/${postKey}`).update({
       title,
-      body
+      body,
+      originalURL
     })
   }
 }

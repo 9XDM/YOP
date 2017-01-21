@@ -4,5 +4,6 @@
 <section class="post-detail y-card">
   <input *ngIf="!isModified" type="button" value="게시" (click)="onWriteBtnClick()"/>
   <input *ngIf="isModified" type="button" value="수정" (click)="onModifyBtnClick()"/>
+  <input type="text" [(ngModel)]="originalURL" placeholder="원본 링크" />
   <textarea id="writePost"></textarea>
 </section>

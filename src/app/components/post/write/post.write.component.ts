@@ -23,6 +23,7 @@ export class PostWriteComponent implements OnInit {
   title: String;
   body: String;
   simpleMde: any;
+  originalURL: String;
   isModified: boolean = false;
 
   constructor(private router: ActivatedRoute, private postService: PostService, private authService: AuthService, private route: Router) {
@@ -43,6 +44,7 @@ export class PostWriteComponent implements OnInit {
         this.postObservable.subscribe(post => {
           this.title = post.title;
           this.body = post.body;
+          this.originalURL = post.originalURL;
 
           this.simpleMde.value(this.body);
         });
@@ -57,7 +59,7 @@ export class PostWriteComponent implements OnInit {
   }
 
   onWriteBtnClick() {
-    this.postService.writePost(this.title, this.simpleMde.value(), this.user)
+    this.postService.writePost(this.title, this.simpleMde.value(), this.originalURL, this.user)
       .then(() => {
         alert('회고 작성이 완료 되었습니다.');
         this.route.navigate(['/']);
@@ -65,7 +67,7 @@ export class PostWriteComponent implements OnInit {
   }
 
   onModifyBtnClick() {
-    this.postService.modifyPost(this.postKey, this.title, this.simpleMde.value())
+    this.postService.modifyPost(this.postKey, this.title, this.simpleMde.value(), this.originalURL)
       .then(() => {
         alert('회고 수정이 완료 되었습니다.');
         this.route.navigate(['/']);

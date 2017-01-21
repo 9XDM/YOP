@@ -7,6 +7,6 @@ export class Post {
   title;
   uid;
   year;
-  original_url;
+  originalURL;
   createDate;
 }
