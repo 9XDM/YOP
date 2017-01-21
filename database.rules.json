@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "posts": {
+      ".read": "true",
+      "$postKey": {
+        ".read": "true",
+        ".write": "data.child(auth.uid).exists()"
+      }
+    },
+    "post-comments": {
+      ".read": "true",
+      ".write": "auth != null"
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    }
+  }
+}

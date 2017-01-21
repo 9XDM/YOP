@@ -2,8 +2,8 @@ export class Post {
   author;
   authorPic;
   body;
-  starCount;
-  stars;
+  likeCount;
+  likes;
   title;
   uid;
   year;

@@ -63,10 +63,7 @@ export class PostDetailComponent implements OnInit {
   }
 
   onLikeBtnClick() {
-    this.isLiked = !this.isLiked;
-    console.log(this.isLiked);
-
-    this.postService.toggleLike(this.postKey, this.isLiked, this.user);
+    console.log(this.postService.toggleLike(this.postKey, this.user));
   }
 
   onMoveToModified() {

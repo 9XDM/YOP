@@ -12,7 +12,7 @@
 <section class="post-info">
   <div class="like-container">
     <span class="custom-icon icon-heart2" (click)="onLikeBtnClick()" [class.active]="isLiked"></span>
-    <span class="like-number">{{(post | async)?.starCount}}</span>
+    <span class="like-number">{{(post | async)?.likeCount}}</span>
   </div>
   <a class="original-url" href="{{(post | async)?.originalURL}}">원문으로 읽기</a>
   <div class="share-container">

@@ -1,16 +1,13 @@
-import {AngularFire, AuthProviders, AuthMethods, FirebaseAuthState, FirebaseListObservable} from "angularfire2";
+import {AngularFire} from "angularfire2";
 import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Post} from "../model/post.model";
 import {User} from "../model/user.model";
+import * as firebase from 'firebase';
 
-declare namespace firebase.database.ServerValue {
-  const TIMESTAMP: any
-}
-
-declare namespace firebase.database.Reference {
-    const transaction;
-}
+// declare namespace firebase.database.ServerValue {
+//   const TIMESTAMP: any
+// }
 
 @Injectable()
 export class PostService {
@@ -39,7 +36,7 @@ export class PostService {
   }
 
   isLiked(postKey, user: User) {
-    return this.af.database.object(`/posts/'${postKey}/stars/${user.uid}`)
+    return this.af.database.object(`/posts/'${postKey}/likes/${user.uid}`)
   }
 
   writeComment(postKey, text, user: User) {
@@ -49,20 +46,34 @@ export class PostService {
       text: text,
       uid: user.uid,
       createDate: firebase.database.ServerValue.TIMESTAMP,
-    })
+    });
   }
 
-  toggleLike(postKey, isLiked, user: User) {
-    return this.af.database.object(`/posts/${postKey}/stars/${user.uid}`).set(isLiked)
+  toggleLike(postKey, user: User) {
+    return firebase.database().ref(`/posts/${postKey}`).transaction((post) => {
+      if (post) {
+        if (post.likes && post.likes[user.uid]) {
+          post.likeCount--;
+          post.likes[user.uid] = null;
+        } else {
+          post.likeCount++;
+          if (!post.likes) {
+            post.likes = {};
+          }
+          post.likes[user.uid] = true;
+        }
+      }
+      return post;
+    });
   }
 
-  writePost(title, body, originalURL, user: User) {
+  writePost(title, body, originalURL = '', user: User) {
     return this.af.database.list('/posts/').push({
       author: user.displayName,
       authorPic: user.photoURL,
       uid: user.uid,
       createDate: firebase.database.ServerValue.TIMESTAMP,
-      starCount: 0,
+      likeCount: 0,
       title,
       body,
       originalURL
