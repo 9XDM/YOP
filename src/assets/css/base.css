@@ -151,6 +151,21 @@ section.intro.detail .created {
   float: right;
   color: #cdcdcd;
 }
+@media (max-width: 599px) {
+  section.summary {
+    margin-bottom: 0;
+  }
+}
+section.summary .y-card {
+  padding: 0.2rem 1rem 1rem;
+  min-height: 380px;
+  margin-bottom: -4px;
+}
+@media (max-width: 599px) {
+  section.summary .y-card {
+    margin-bottom: 1.5rem;
+  }
+}
 section.summary h3 {
   color: #bfbfbf;
   font-weight: 600;
@@ -290,6 +305,7 @@ section.posts .post .like-container .like-number {
 #myChart {
   max-height: 300px;
   max-width: 300px;
+  margin: 0 auto;
 }
 .post-detail.y-card {
   margin-top: 3rem;

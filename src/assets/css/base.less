@@ -172,6 +172,17 @@ section.intro {
   }
 }
 section.summary {
+  @media @l-s {
+    margin-bottom: 0;
+  }
+  .y-card {
+    padding: 0.2rem 1rem 1rem;
+    min-height: 380px;
+    margin-bottom: -4px;
+    @media @l-s {
+      margin-bottom: 1.5rem;
+    }
+  }
   h3 {
     font-size: 1.2rem;
     color: #bfbfbf;
@@ -309,6 +320,7 @@ section.posts {
 #myChart {
   max-height: 300px;
   max-width: 300px;
+  margin: 0 auto;
 }
 
 //*-- BLOG DETAIL *--//
