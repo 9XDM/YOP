@@ -137,7 +137,7 @@ const chartData = {
     ]
 }
 
-fs.writeFile('./chart-data.json', JSON.stringify(chartData), function(err) {
+fs.writeFile('./src/data/chart-data.json', JSON.stringify(chartData), function(err) {
   if(err) throw err;
   console.log('File write completed');
 });

@@ -8,7 +8,7 @@ const LIMIT_WORDS_NUMBER = 50;
 
 // 인간지능 TF-IDF .....
 let isAllowKey = (word) => {
-  const excludeWords = ['것', '알', '위', '감', '앞', '내', '날', '데', '로', '약', '쪽', '줄', '입', '중', '약', '곳', '해', '치', '파', '더', '게', '전', '반', '니', '뿐', '늘', '함', '거나', '온', '로서', '도', '의', '분', '땐', '해도', '대해', '로써'];
+  const excludeWords = ['것', '알', '위', '감', '앞', '내', '날', '데', '로', '약', '쪽', '줄', '입', '중', '약', '곳', '해', '치', '파', '더', '게', '전', '반', '니', '뿐', '늘', '함', '거나', '온', '로서', '도', '의', '분', '땐', '해도', '대해', '로써', '때', '수'];
   return !_.includes(excludeWords, word);
 }
 
@@ -35,7 +35,7 @@ TwitterKoreanProcessor.normalize(text).then(result => {
 
       const sliceData = cloudData.slice(0, LIMIT_WORDS_NUMBER);
 
-      return fs.writeFile('./nouns.json', JSON.stringify(sliceData), (err) => {
+      return fs.writeFile('./src/data/nouns.json', JSON.stringify(sliceData), (err) => {
         if(err) throw err;
         console.log('Nouns File write completed');
       })
