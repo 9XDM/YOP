@@ -46,7 +46,7 @@ export class PostDetailComponent implements OnInit {
       .subscribe(session => {
         this.user = session.auth;
         this.postService.isLiked(this.postKey, this.user).subscribe(isLiked => {
-          this.isLiked = isLiked
+          this.isLiked = isLiked.$value
         });
 
         this.post.subscribe(post => {

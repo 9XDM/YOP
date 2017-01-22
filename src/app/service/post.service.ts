@@ -5,10 +5,6 @@ import {Post} from "../model/post.model";
 import {User} from "../model/user.model";
 import * as firebase from 'firebase';
 
-// declare namespace firebase.database.ServerValue {
-//   const TIMESTAMP: any
-// }
-
 @Injectable()
 export class PostService {
   private behaviorSubject: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>(null);
@@ -36,7 +32,7 @@ export class PostService {
   }
 
   isLiked(postKey, user: User) {
-    return this.af.database.object(`/posts/'${postKey}/likes/${user.uid}`)
+    return this.af.database.object(`/posts/${postKey}/likes/${user.uid}`)
   }
 
   writeComment(postKey, text, user: User) {
@@ -50,20 +46,22 @@ export class PostService {
   }
 
   toggleLike(postKey, user: User) {
-    return firebase.database().ref(`/posts/${postKey}`).transaction((post) => {
-      if (post) {
-        if (post.likes && post.likes[user.uid]) {
-          post.likeCount--;
-          post.likes[user.uid] = null;
-        } else {
-          post.likeCount++;
-          if (!post.likes) {
-            post.likes = {};
-          }
-          post.likes[user.uid] = true;
+    return firebase.database().ref(`/posts/${postKey}/likes`).transaction((likes) => {
+      if (likes && likes[user.uid]) {
+        firebase.database().ref(`/posts/${postKey}/likeCount`).transaction((likeCount) => {
+          return --likeCount;
+        });
+        likes[user.uid] = null;
+      } else {
+        if (!likes) {
+          likes = {};
         }
+        firebase.database().ref(`/posts/${postKey}/likeCount`).transaction((likeCount) => {
+          return ++likeCount;
+        });
+        likes[user.uid] = true;
       }
-      return post;
+      return likes
     });
   }
 

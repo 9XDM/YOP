@@ -18,10 +18,11 @@ export class HeaderComponent implements OnInit{
   isLoggedIn = false;
 
   constructor(private authService: AuthService, private router: Router) {
-    this.isLoggedIn = false;
-
     authService.loginStateChange()
-      .filter(authState => authState !== null)
+      .filter(authState => {
+        this.isLoggedIn = false;
+        return authState !== null
+      })
       .map(authState => authState.auth)
       .subscribe(user => {
         this.user = user;

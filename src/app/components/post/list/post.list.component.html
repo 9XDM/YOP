@@ -20,9 +20,9 @@
         <div class="user">
           <img class="thumbnail circle responsive-img" [src]="post.authorPic"/>
           <p>{{post.author}}</p>
-          <div class="like-container">
-            <span class="custom-icon icon-heart2"></span>
-            <span class="like-number">{{post.starCount}}</span>
+          <div class="like-container" (click)="onLikeBtnClick(post.$key)">
+            <span class="custom-icon icon-heart2" [class.active]="post | isLiked: user"></span>
+            <span class="like-number">{{ post.likeCount }}</span>
           </div>
         </div>
         <a routerLink="/posts/{{post.$key}}">
