@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../../../service/post.service";
-import {FirebaseObjectObservable, FirebaseListObservable} from "angularfire2";
+import {FirebaseObjectObservable, FirebaseListObservable, AngularFire} from "angularfire2";
 import {Comment} from "../../../model/comment.model";
 import {Post} from "../../../model/post.model";
 import {User} from "../../../model/user.model";
@@ -34,7 +34,8 @@ export class PostDetailComponent implements OnInit {
   constructor(private router: ActivatedRoute,
               private postService: PostService,
               private authService: AuthService,
-              private route: Router) {
+              private route: Router,
+              private af: AngularFire) {
   }
 
   ngOnInit() {
@@ -95,6 +96,32 @@ export class PostDetailComponent implements OnInit {
           alert('삭제에 실패 했습니다.');
         });
     }
+  }
+
+  onNextPostBtnClick() {
+    this.af.database.list('posts', {
+      query: {
+        orderByKey: true,
+        startAt: this.postKey,
+        limitToFirst: 2
+      }
+    }).subscribe(posts => {
+      let nextPost = posts[1];
+      this.route.navigate([`/posts/${nextPost.$key}`])
+    })
+  }
+
+  onPrevPostBtnClick() {
+    this.af.database.list('posts', {
+      query: {
+        orderByKey: true,
+        endAt: this.postKey,
+        limitToLast: 2
+      }
+    }).subscribe(posts => {
+      let prevPost = posts[0];
+      this.route.navigate([`/posts/${prevPost.$key}`])
+    })
   }
 
   onShareInFacebook() {
