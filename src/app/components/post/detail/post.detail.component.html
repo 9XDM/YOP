@@ -23,8 +23,8 @@
     </div>
     <a class="original-url" href="{{(post | async)?.originalURL}}" *ngIf="(post | async)?.originalURL != ''" target="_blank">원문으로 읽기</a>
     <div class="share-container">
-      <span class="icon-facebook"></span>
-      <span class="icon-twitter"></span>
+      <span class="icon-facebook" (click)="onShareInFacebook()"></span>
+      <span class="icon-twitter" (click)="onShareInTwitter()"></span>
     </div>
   </section>
 </section>
