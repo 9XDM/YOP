@@ -70,13 +70,15 @@ export class PostDetailComponent implements OnInit {
   }
 
   onDeleteBtnClick() {
-    this.postService.deletePost(this.postKey)
-      .then(() => {
-        alert('삭제가 완료 되었습니다.');
-        this.route.navigate(['/']);
-      })
-      .catch(err => {
-        alert('삭제에 실패 했습니다.');
-      });
+    if (confirm("정말로 삭제 하시겠습니까?")) {
+      this.postService.deletePost(this.postKey)
+        .then(() => {
+          alert('삭제가 완료 되었습니다.');
+          this.route.navigate(['/']);
+        })
+        .catch(err => {
+          alert('삭제에 실패 했습니다.');
+        });
+    }
   }
 }
