@@ -6,6 +6,7 @@ import {Comment} from "../../../model/comment.model";
 import {Post} from "../../../model/post.model";
 import {User} from "../../../model/user.model";
 import {AuthService} from "../../../service/auth.service";
+import {Observable} from "rxjs";
 
 declare const $: any;
 declare const marked: any;
@@ -31,6 +32,9 @@ export class PostDetailComponent implements OnInit {
   postKey: String;
   commentBody: String;
 
+  nextPostObservable: Observable<any>;
+  prevPostObservable: Observable<any>;
+
   constructor(private router: ActivatedRoute,
               private postService: PostService,
               private authService: AuthService,
@@ -44,6 +48,8 @@ export class PostDetailComponent implements OnInit {
         this.postKey = key;
         this.post = this.postService.getPost(key);
         this.comments = this.postService.getComments(key);
+        this.nextPostObservable = this.postService.getNextPost(this.postKey);
+        this.prevPostObservable = this.postService.getPrevPost(this.postKey);
       });
 
     this.authService.getSession()
@@ -98,13 +104,14 @@ export class PostDetailComponent implements OnInit {
   }
 
   onNextPostBtnClick() {
-    this.postService.getNextPost(this.postKey).subscribe(nextPost => {
+    this.nextPostObservable.subscribe(nextPost => {
+      console.log(nextPost)
       this.route.navigate([`/posts/${nextPost.$key}`])
     })
   }
 
   onPrevPostBtnClick() {
-    this.postService.getPrevPost(this.postKey).subscribe(prevPost => {
+    this.prevPostObservable.subscribe(prevPost => {
       this.route.navigate([`/posts/${prevPost.$key}`])
     })
   }

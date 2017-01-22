@@ -53,7 +53,7 @@
   </div>
 </section>
 <section class="related-posts">
-  <a (click)="onPrevPostBtnClick()" class="past-post"><i class="material-icons">&#xE5CB;</i>이전 회고</a>
+  <a (click)="onPrevPostBtnClick()" class="past-post" *ngIf="(prevPostObservable | async)?.$key"><i class="material-icons">&#xE5CB;</i>이전 회고</a>
   <a routerLink="/posts" class="to-list">목록으로</a>
-  <a (click)="onNextPostBtnClick()" class="next-post">다음 회고<i class="material-icons">&#xE409;</i></a>
+  <a (click)="onNextPostBtnClick()" class="next-post" *ngIf="(nextPostObservable | async)?.$key != postKey">다음 회고<i class="material-icons">&#xE409;</i></a>
 </section>
