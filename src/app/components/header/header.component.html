@@ -15,7 +15,7 @@
         </a>
         <ul id="nav-top" class="right account-large">
           <li id="sign-in-button" class="login hide-on-med-and-down" (click)="onLoginButtonClick()" [class.activate]="!isLoggedIn">
-            <a href="#">Login with <span class="custom-icon icon-github-alt"></span></a>
+            <a>Login with <span class="custom-icon icon-github-alt"></span></a>
           </li>
           <li id="user-info" class="user-info hide-on-med-and-down" [class.activate]="isLoggedIn">
             <a class="dropdown-button" href="#!" data-activates="account-dropdown">
@@ -39,7 +39,7 @@
               <a href="#!email"><span class="white-text email">{{user?.email}}</span></a>
             </div>
           </li>
-          <li id="sign-in-button" (click)="onLoginButtonClick()" [class.activate]="!isLoggedIn"><a href="#">Login with <span class="custom-icon icon-github-alt"></span></a></li>
+          <li id="sign-in-button" (click)="onLoginButtonClick()" [class.activate]="!isLoggedIn"><a>Login with <span class="custom-icon icon-github-alt"></span></a></li>
           <li><a href="#!">내가 쓴 회고</a></li>
           <li><a href="#!">내가 좋아한 회고</a></li>
           <li>

@@ -28,4 +28,8 @@ export class PostListComponent implements OnInit {
         this.posts = posts;
       });
   }
+
+  // onLikeBtnClick(postKey) {
+  //   this.postService.toggleLike(postKey, this.user);
+  // }
 }

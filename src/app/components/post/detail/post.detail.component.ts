@@ -29,16 +29,17 @@ export class PostDetailComponent implements OnInit {
 
   constructor(private router: ActivatedRoute,
               private postService: PostService,
-              private authService: AuthService,
-              private route: Router) {
+              private authService: AuthService) {
   }
 
   ngOnInit() {
-    this.router.params.subscribe(params => {
-      this.postKey = params['key'];
-      this.post = this.postService.getPost(params['key']);
-      this.comments = this.postService.getComments(params['key']);
-    });
+    this.router.params
+      .map(params => params['key'])
+      .subscribe(key => {
+        this.postKey = key;
+        this.post = this.postService.getPost(key);
+        this.comments = this.postService.getComments(key);
+      });
 
     this.authService.getSession()
       .take(1)
@@ -63,10 +64,6 @@ export class PostDetailComponent implements OnInit {
   }
 
   onLikeBtnClick() {
-    console.log(this.postService.toggleLike(this.postKey, this.user));
-  }
-
-  onMoveToModified() {
-    this.route.navigate([`/write/${this.postKey}`]);
+    this.postService.toggleLike(this.postKey, this.user);
   }
 }
