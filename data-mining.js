@@ -4,11 +4,11 @@ const _ = require('lodash');
 const fs = require('fs');
 
 const config = {
-  apiKey: "HI",
-  authDomain: "HI",
-  databaseURL: "",
-  storageBucket: "",
-  messagingSenderId: ""
+  apiKey: "AIzaSyDRWInNTqMZMkbbFxeJfbjHN3dwSZLJbKI",
+  authDomain: "yopyop-5e569.firebaseapp.com",
+  databaseURL: "https://yopyop-5e569.firebaseio.com",
+  storageBucket: "yopyop-5e569.appspot.com",
+  messagingSenderId: "798678080282"
 };
 
 firebase.initializeApp(config);
