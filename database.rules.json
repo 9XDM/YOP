@@ -2,10 +2,9 @@
   "rules": {
     "posts": {
       ".read": "true",
-      ".write": "auth != null",
       "$postKey": {
         ".read": "true",
-        ".write": "(!data.exists() && auth != null) || data.child(auth.uid).exists()",
+        ".write": "auth != null && (!data.exists() || data.child('uid').val() === auth.uid) && newData.hasChild('uid')",
         "likes": {
           ".read": "true",
           ".write": "auth != null"

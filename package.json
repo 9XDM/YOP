@@ -26,7 +26,6 @@
   "dependencies": {
     "firebase": "^3.6.5",
     "lodash": "^4.17.4",
-    "node-twitter-korean-text": "^1.0.5",
     "@angular/common": "^2.3.1",
     "@angular/compiler": "^2.3.1",
     "@angular/core": "^2.3.1",
@@ -46,6 +45,7 @@
     "@angular/compiler-cli": "^2.3.1",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
+    "node-twitter-korean-text": "^1.0.5",
     "angular-cli": "1.0.0-beta.25.5",
     "codelyzer": "~2.0.0-beta.1",
     "jasmine-core": "2.5.2",
