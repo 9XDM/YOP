@@ -1,9 +1,15 @@
-<section class="write">
-  <input [(ngModel)]="title"/>
+<section class="intro">
+  <h1>회고 올리기</h1>
+  <h2>일 년간의 당신을 알고싶어요</h2>
 </section>
-<section class="post-detail y-card">
-  <input *ngIf="!isModified" type="button" value="게시" (click)="onWriteBtnClick()"/>
-  <input *ngIf="isModified" type="button" value="수정" (click)="onModifyBtnClick()"/>
-  <input type="text" [(ngModel)]="originalURL" placeholder="원본 링크" />
-  <textarea id="writePost"></textarea>
+<section class="write-o y-card">
+  <input [(ngModel)]="title" placeholder="Title" id="input-title"/>
+  <div class="post-detail">
+    <input type="text" [(ngModel)]="originalURL" placeholder="원본 링크" />
+    <textarea id="writePost"></textarea>
+    <div class="action">
+      <input class="block-btn" *ngIf="!isModified" type="button" value="올리기" (click)="onWriteBtnClick()"/>
+      <input class="block-btn" *ngIf="isModified" type="button" value="수정" (click)="onModifyBtnClick()"/>
+    </div>
+  </div>
 </section>

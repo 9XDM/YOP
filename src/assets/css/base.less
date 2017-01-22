@@ -61,6 +61,18 @@ img.avatar {
   height: 50px;
   border-radius: 50%;
 }
+.block-btn {
+  width: 4.4rem;
+  height: 2.6rem;
+  border-radius: 1px;
+  border: none;
+  background: @main_1;
+  color: white;
+  &:hover {
+    background: darken(@main_1, 8%);
+    transition: @background-transition;
+  }
+}
 
 //*-- NAVIGATION *--//
 nav.nav-main{
@@ -435,6 +447,21 @@ section.related-posts {
   }
   .next-post {
     float: right;
+  }
+}
+
+//*-- POST CREATE *--//
+.write-o {
+  padding: 0.8rem 1.6rem;
+  margin-top: 1.3rem;
+  #input-title {
+    font-size: 2.8rem;
+    margin: 2rem 0 0.5rem;
+    font-weight: 700;
+  }
+  .action {
+    text-align: right;
+    margin-bottom: 0.5rem;
   }
 }
 
