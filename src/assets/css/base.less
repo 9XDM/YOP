@@ -136,18 +136,21 @@ section.intro {
       img {
         width: 30px;
       }
-    }
-    .edit {
-      font-size: 1.1rem;
-      padding-left: 0.5rem;
-      cursor: pointer;
-      color: @primary;
-    }
-    .delete {
-      font-size: 1.1rem;
-      padding-left: 0.5rem;
-      cursor: pointer;
-      color: @warning;
+      .action {
+        display: inline-block;
+        cursor: pointer;
+        padding-left: 0.7rem;
+        span {
+          font-size: 1.3rem;
+          margin-right: 1px;
+        }
+        .edit {
+          color: @primary;
+        }
+        .delete {
+          color: @warning;
+        }
+      }
     }
     .created {
       font-size: 0.9rem;

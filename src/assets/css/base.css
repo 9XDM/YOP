@@ -119,16 +119,19 @@ section.intro.detail h2 {
 section.intro.detail h2 img {
   width: 30px;
 }
-section.intro.detail .edit {
-  font-size: 1.1rem;
-  padding-left: 0.5rem;
+section.intro.detail h2 .action {
+  display: inline-block;
   cursor: pointer;
+  padding-left: 0.7rem;
+}
+section.intro.detail h2 .action span {
+  font-size: 1.3rem;
+  margin-right: 1px;
+}
+section.intro.detail h2 .action .edit {
   color: #364F6B;
 }
-section.intro.detail .delete {
-  font-size: 1.1rem;
-  padding-left: 0.5rem;
-  cursor: pointer;
+section.intro.detail h2 .action .delete {
   color: #f35454;
 }
 section.intro.detail .created {
