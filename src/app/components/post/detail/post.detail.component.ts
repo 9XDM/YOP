@@ -50,7 +50,7 @@ export class PostDetailComponent implements OnInit {
         });
 
         this.post.subscribe(post => {
-          $(".post-detail")[0].innerHTML = marked(post.body);
+          $(".post-contents")[0].innerHTML = marked(post.body);
 
           if (post.uid === session.uid) {
             this.isAuth = true;
