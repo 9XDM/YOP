@@ -61,6 +61,7 @@ export class PostDetailComponent implements OnInit {
 
   onWriteBtnClick() {
     this.postService.writeComment(this.postKey, this.commentBody, this.user);
+    $('.comment-text').val('');
   }
 
   onLikeBtnClick() {

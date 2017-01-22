@@ -25,13 +25,13 @@
     <div id="comment">
       <div class="wrapper">
         <img class="avatar" [src]="user?.photoURL"/>
-        <textarea placeholder="생각을 남겨주세요" [(ngModel)]="commentBody"></textarea>
+        <textarea class="comment-text" placeholder="생각을 남겨주세요" [(ngModel)]="commentBody"></textarea>
         <input type="button" value="게시" (click)="onWriteBtnClick()"/>
       </div>
     </div>
   </div>
   <div class="comment-list">
-    <div class="comment" *ngFor="let comment of comments | async">
+    <div class="comment" *ngFor="let comment of comments | async | reverse">
       <img class="avatar" [src]="comment.authorPic"/>
       <div class="comment-wrapper">
         <div class="nickname">{{comment.author}}</div>
