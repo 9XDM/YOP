@@ -1,6 +1,10 @@
 <section class="intro">
   <h1>Year Of Programming</h1>
   <h2>개발자, 일 년간의 회고</h2>
+  <div class="year-container">
+    <a href="/" class="active">ALL</a>
+    <a href="">2016</a>
+  </div>
 </section>
 <section class="summary">
   <div class="row">
@@ -13,11 +17,6 @@
   </div>
 </section>
 <section class="posts">
-  <div class="year-container">
-    <a href="/" class="active">ALL</a>
-    <a href="">2016</a>
-  </div>
-
   <ul class="row">
     <li class="post col s12 m6 l4" *ngFor="let post of posts | reverse">
       <div class="y-card">

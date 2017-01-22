@@ -123,8 +123,8 @@ section.intro {
   }
   h2 {
     font-size: 1.4rem;
-    margin: 0.8rem 0 3rem;
-    color: @gray_4;
+    margin: 5px 0;
+    color: #b3b3b3;
     word-break: keep-all;
   }
   &.detail {
@@ -158,21 +158,22 @@ section.intro {
 }
 
 //*-- BLOG POST LIST *--//
-section.posts {
-  .year-container {
-    text-align: right;
-    a {
-      display: inline-block;
-      color: @gray_4;
-      width: 3.2rem;
-      font-size: 1.3rem;
-      &.active {
-        text-decoration: underline;
-        font-weight: 600;
-        color: @font-primary;
-      }
+.year-container {
+  text-align: right;
+  margin: 1rem 0.4rem 1rem 0;
+  a {
+    display: inline-block;
+    color: @gray_4;
+    width: 3.2rem;
+    font-size: 1.3rem;
+    &.active {
+      text-decoration: underline;
+      font-weight: 600;
+      color: @font-primary;
     }
   }
+}
+section.posts {
   ul.row {
     margin-top: 0;
   }
@@ -257,10 +258,15 @@ section.posts {
     }
     .like-container {
       float: right;
-      margin-right: 25px;
+      margin-right: 22px;
       margin-top: 5px;
       .custom-icon {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+      .like-number {
+        top: 3px;
+        left: 13px;
+        font-size: 0.7rem;
       }
     }
   }
@@ -277,6 +283,7 @@ section.posts {
 
 //*-- BLOG DETAIL *--//
 .post-detail.y-card {
+  margin-top: 3rem;
   padding: 1.5rem;
 }
 section.post-info {

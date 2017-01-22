@@ -106,8 +106,8 @@ section.intro h1 {
 }
 section.intro h2 {
   font-size: 1.4rem;
-  margin: 0.8rem 0 3rem;
-  color: #9c9c9c;
+  margin: 5px 0;
+  color: #b3b3b3;
   word-break: keep-all;
 }
 section.intro.detail h1 {
@@ -136,16 +136,17 @@ section.intro.detail .created {
   float: right;
   color: #cdcdcd;
 }
-section.posts .year-container {
+.year-container {
   text-align: right;
+  margin: 1rem 0.4rem 1rem 0;
 }
-section.posts .year-container a {
+.year-container a {
   display: inline-block;
   color: #9c9c9c;
   width: 3.2rem;
   font-size: 1.3rem;
 }
-section.posts .year-container a.active {
+.year-container a.active {
   text-decoration: underline;
   font-weight: 600;
   color: #404040;
@@ -243,11 +244,16 @@ section.posts .post .date-container .created {
 }
 section.posts .post .like-container {
   float: right;
-  margin-right: 25px;
+  margin-right: 22px;
   margin-top: 5px;
 }
 section.posts .post .like-container .custom-icon {
-  font-size: 2rem;
+  font-size: 2.2rem;
+}
+section.posts .post .like-container .like-number {
+  top: 3px;
+  left: 13px;
+  font-size: 0.7rem;
 }
 #cloud {
   height: 300px;
@@ -257,6 +263,7 @@ section.posts .post .like-container .custom-icon {
   max-width: 300px;
 }
 .post-detail.y-card {
+  margin-top: 3rem;
   padding: 1.5rem;
 }
 section.post-info {
