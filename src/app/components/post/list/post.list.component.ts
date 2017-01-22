@@ -1,7 +1,6 @@
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {Post} from "../../../model/post.model";
 import {PostService} from "../../../service/post.service";
-import {Observable} from "rxjs";
 
 
 declare const $: any;
@@ -17,7 +16,7 @@ export class PostListComponent {
   posts: Post[];
 
   constructor(private postService: PostService) {
-    postService.getPosts().distinctUntilChanged().subscribe(posts => {
+    postService.getPosts().subscribe(posts => {
       this.posts = posts;
     });
   }

@@ -5,12 +5,18 @@ import {PostWriteComponent} from "./components/post/write/post.write.component";
 
 export const router: Routes = [
   {
-    path:'', component: PostListComponent
+    path: '', redirectTo: '/posts', pathMatch: 'full'
   },
   {
-    path:'post/:key', component: PostDetailComponent
+    path:'posts', component: PostListComponent
   },
   {
-    path:'write/:key', component: PostWriteComponent
+    path:'posts/my', component: PostListComponent
+  },
+  {
+    path:'posts/:key', component: PostDetailComponent
+  },
+  {
+    path:'posts/write/:key', component: PostWriteComponent
   }
 ];
