@@ -269,6 +269,16 @@ section.posts .post .like-container .like-number {
   margin-top: 3rem;
   padding: 1.5rem;
 }
+@media (max-width: 599px) {
+  .post-detail.y-card {
+    margin: 3rem -1.4rem;
+  }
+}
+.post-detail.y-card .post-contents img {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
 section.post-info {
   margin: 2.1rem 0 -0.9rem;
   height: 3rem;
