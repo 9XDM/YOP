@@ -1,3 +1,16 @@
+var Share = {
+    clickShareBtn: function () {
+        var size = 'width=626 height=436';
+        var url = location.href;
+        $('.icon-facebook').on('click', function () {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank', size);
+        });
+        $('.icon-twitter').on('click', function () {
+            window.open('https://twitter.com/share?url=' + url, '_blank', size);
+        });
+    }
+};
+
 $(function() {
   Chart.pluginService.register({
     afterUpdate: function (chart) {
@@ -86,6 +99,7 @@ $(function() {
   })
 
   $(".button-collapse").sideNav();
+  Share.clickShareBtn();
 
   $.getJSON("../data/nouns.json", words => {
     $("#cloud").jQCloud(words, {
@@ -93,5 +107,5 @@ $(function() {
       shape: 'rectangular'
     });
   })
-  
+
 });
