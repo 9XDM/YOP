@@ -12,37 +12,37 @@ _.forEach(languageArray, data => {
   languageObject[data] = 0;
 })
 
-const laguageRegex = /javascript|자바스크립트|ecmascript|html|css|(c\+\+)|(c\#)|c|python|파이썬|ruby|루비|go|haskell|하스켈|java|자바|scala|스칼라|perl|swift|스위프트|rust|러스트|Kotlin|코틀린|lisp|php/g; 
+const laguageRegex = /javascript|자바스크립트|ecmascript|html|css|(c\+\+)|(c\#)|c|python|파이썬|ruby|루비|go|haskell|하스켈|java|자바|scala|스칼라|perl|swift|스위프트|rust|러스트|Kotlin|코틀린|lisp|php/g;
 
 const languages = _.toLower(text).match(laguageRegex);
 
 const countObject = _.countBy(languages);
 
 const colorScheme = {
-    "Kotlin": "#F18E33",  
-    "Rust": "#dea584",
-    "Ruby": "#701516",  
-    "GO": "#375eab", 
-    "PHP": "#4F5D95",  
-    "Java": "#b07219",  
-    "Scala": "#DC322F",
-    "Perl": "#0298c3",  
-    "HTML": "#e44b23",  
-    "Swift": "#ffac45", 
-    "C": "#555555",  
-    "C#": "#178600", 
-    "CSS": "#563d7c", 
-    "Javascript": "#f1e05a",  
-    "Python": "#3572A5", 
-    "LISP": "#3fb68b", 
-    "Haskell": "#29b544", 
-    "C++": "#f34b7d",
-    "Etc": "#57585B"
+    "Kotlin": "#4BC0C0",
+    "Rust": "#4BC0C0",
+    "Ruby": "#FF6384",
+    "GO": "#41C5D3",
+    "PHP": "#D0F1CF",
+    "Java": "#379956",
+    "Scala": "#FC5185",
+    "Perl": "#0298c3",
+    "HTML": "#3FC1C9",
+    "Swift": "#364F6B",
+    "C": "#D53939",
+    "C#": "#FFB563",
+    "CSS": "#F9DE79",
+    "Javascript": "#FFCE56",
+    "Python": "#29C6CD",
+    "LISP": "#8BC34A",
+    "Haskell": "#29b544",
+    "C++": "#415F9D",
+    "Etc": "#E7E9ED"
 };
 
 _.forEach(countObject, (count, name) => {
   if (name === 'javascript' || name === '자바스크립트' || name === 'ecmascript') {
-   languageObject["Javascript"] += countObject[name]; 
+   languageObject["Javascript"] += countObject[name];
   } else if (name === 'html') {
    languageObject["HTML"] += countObject[name];
   } else if (name === 'css') {
@@ -141,4 +141,3 @@ fs.writeFile('./chart-data.json', JSON.stringify(chartData), function(err) {
   if(err) throw err;
   console.log('File write completed');
 });
-
