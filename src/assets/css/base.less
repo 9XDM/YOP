@@ -159,6 +159,15 @@ section.intro {
     }
   }
 }
+section.summary {
+  h3 {
+    font-size: 1.2rem;
+    color: ##bfbfbf;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #7b7b7b;
+  }
+}
 
 //*-- BLOG POST LIST *--//
 .year-container {
@@ -223,16 +232,22 @@ section.posts {
     .summary {
       font-size: 0.9rem;
       color: @gray_4;
-      margin-bottom: 0.5rem;
-      max-height: 3.6rem;
+      margin: 0.8rem 0px;
       overflow: hidden;
-      text-overflow: ellipsis;
+      text-overflow: clip;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 15; /* 라인수 */
+      line-height: 1.2em;
+      max-height: 18em;
       &.has-photo {
-        height: 3.5rem;
+        -webkit-line-clamp: 3; /* 라인수 */
+        line-height: 1.2em;
+        max-height: 3.6em;
       }
     }
     img.thumbnail {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.8rem;
       max-height: 200px;
       @media @l-s {
         max-height: 300px;
