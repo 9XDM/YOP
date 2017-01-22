@@ -7,7 +7,7 @@ import {AuthService} from "../../../service/auth.service";
 import {User} from "../../../model/user.model";
 
 declare const $: any;
-declare const SimpleMDE : any;
+declare const SimpleMDE: any;
 
 @Component({
   selector: 'post-write-component',
@@ -26,7 +26,10 @@ export class PostWriteComponent implements OnInit {
   originalURL: String;
   isModified: boolean = false;
 
-  constructor(private router: ActivatedRoute, private postService: PostService, private authService: AuthService, private route: Router) {
+  constructor(private activatedRouter: ActivatedRoute,
+              private postService: PostService,
+              private authService: AuthService,
+              private route: Router) {
   }
 
   ngOnInit() {
@@ -35,21 +38,21 @@ export class PostWriteComponent implements OnInit {
       spellChecker: false
     });
 
-    this.router.params.subscribe(params => {
-      if (params['key'] !== 'new') {
-        this.postKey = params['key'];
-        this.postObservable = this.postService.getPost(params['key']);
+    this.activatedRouter.params
+      .map(params => params['key'])
+      .filter(key => key !== 'new')
+      .switchMap(key => {
+        this.postKey = key;
         this.isModified = true;
+        return this.postService.getPost(key)
+      })
+      .subscribe(post => {
+        this.title = post.title;
+        this.body = post.body;
+        this.originalURL = post.originalURL;
 
-        this.postObservable.subscribe(post => {
-          this.title = post.title;
-          this.body = post.body;
-          this.originalURL = post.originalURL;
-
-          this.simpleMde.value(this.body);
-        });
-      }
-    });
+        this.simpleMde.value(this.body);
+      });
 
     this.authService.getSession()
       .take(1)

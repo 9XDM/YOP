@@ -67,7 +67,7 @@ export class PostService {
     });
   }
 
-  writePost(title, body, originalURL = '', user: User) {
+  writePost(title, body, originalURL, user: User) {
     return this.af.database.list('/posts/').push({
       author: user.displayName,
       authorPic: user.photoURL,

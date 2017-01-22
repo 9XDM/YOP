@@ -1,0 +1,11 @@
+/* Encapsulated styles */
+
+#user-info, #sign-in-button {
+  display: none;
+}
+
+#sign-in-button.activate,
+#user-info.activate,
+#sign-out-button.activate {
+  display: block;
+}

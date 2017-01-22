@@ -2,9 +2,18 @@
   "rules": {
     "posts": {
       ".read": "true",
+      ".write": "auth != null",
       "$postKey": {
         ".read": "true",
-        ".write": "data.child(auth.uid).exists()"
+        ".write": "(!data.exists() && auth != null) || data.child(auth.uid).exists()",
+        "likes": {
+          ".read": "true",
+          ".write": "auth != null"
+        },
+        "likeCount": {
+          ".read": "true",
+          ".write": "auth != null"
+        }
       }
     },
     "post-comments": {
