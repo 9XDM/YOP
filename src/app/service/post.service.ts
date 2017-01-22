@@ -85,4 +85,8 @@ export class PostService {
       originalURL
     })
   }
+
+  deletePost(postKey) {
+    return this.af.database.list(`/posts/${postKey}`).remove();
+  }
 }

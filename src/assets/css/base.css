@@ -118,6 +118,13 @@ section.intro.detail .edit {
   font-size: 1.1rem;
   padding-left: 0.5rem;
   cursor: pointer;
+  color: #364F6B;
+}
+section.intro.detail .delete {
+  font-size: 1.1rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+  color: #f35454;
 }
 section.intro.detail .created {
   font-size: 0.9rem;

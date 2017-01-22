@@ -29,7 +29,8 @@ export class PostDetailComponent implements OnInit {
 
   constructor(private router: ActivatedRoute,
               private postService: PostService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private route: Router) {
   }
 
   ngOnInit() {
@@ -66,5 +67,16 @@ export class PostDetailComponent implements OnInit {
 
   onLikeBtnClick() {
     this.postService.toggleLike(this.postKey, this.user);
+  }
+
+  onDeleteBtnClick() {
+    this.postService.deletePost(this.postKey)
+      .then(() => {
+        alert('삭제가 완료 되었습니다.');
+        this.route.navigate(['/']);
+      })
+      .catch(err => {
+        alert('삭제에 실패 했습니다.');
+      });
   }
 }
