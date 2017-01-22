@@ -10,6 +10,9 @@ body {
 img {
   vertical-align: middle;
 }
+#cloud {
+  height: 300px;
+}
 
 //*-- MATERIALIZECSS DEFAULT *--//
 nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
@@ -20,18 +23,25 @@ a {
   color: @main_1;
 }
 
-
 //*-- COMPONENTS *--//
 .like-container {
   .custom-icon {
-    color: @main_0;
+    color: @gray_1;
     font-size: 2.4rem;
     position: absolute;
+    cursor: pointer;
+    transition: @transition;
+    &.active {
+      color: @main_0;
+    }
+    &:hover {
+      color: @main_0;
+    }
   }
   .like-number {
     position: relative;
     top: 5px;
-    left: 12px;
+    left: 14px;
     color: white;
     font-size: 0.8rem;
     font-weight: lighter;
@@ -139,10 +149,24 @@ section.intro {
 //*-- BLOG POST LIST *--//
 section.posts {
   .post {
-    >a {
-      display: block;
-      margin: 0.5rem;
+    padding: 0.9rem 0.65rem;
+    @media @l-s {
+      padding: 0.6rem 0.2rem;
+    }
+    >.y-card {
+      padding: 5px 13px;
       color: @font-primary;
+      position: relative;
+      >a {
+        // height: 333px;
+        display: block;
+        overflow: hidden;
+            padding-bottom: 35px;
+            height: 360px;
+            @media @l-s {
+              height: auto;
+            }
+      }
     }
     .user {
       img {
@@ -153,24 +177,38 @@ section.posts {
       }
     }
     h3 {
+      color: @font-primary;
       font-size: 1.5rem;
       margin: 0.9rem 0 0.6rem;
+      text-overflow: ellipsis;
+max-height: 3.2rem;
+overflow: hidden;
     }
     .summary {
       font-size: 0.9rem;
       color: @gray_4;
       margin-bottom: 0.5rem;
+      max-height: 3.6rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &.has-photo {
+        height: 3.5rem;
+      }
     }
     img.thumbnail {
       margin-bottom: 0.3rem;
-    }
-    .divider {
-      background-color: #f9f9f9;
-      margin: 4.5px -1.3rem;
-      height: 2px;
+      max-height: 200px;
     }
     .date-container {
       margin: 10px 0;
+      position: absolute;
+      bottom: 0;
+      width: 95.2%;
+      .divider {
+        background-color: #f9f9f9;
+        margin: 4.5px -0.9rem;
+        height: 2px;
+      }
       .year {
         font-weight: 900;
         display: inline-block;
@@ -180,12 +218,16 @@ section.posts {
         font-weight: lighter;
         display: inline-block;
         float: right;
+        margin-right: 23px;
       }
     }
     .like-container {
       float: right;
-      margin-right: 14px;
-      margin-top: 3px;
+      margin-right: 25px;
+      margin-top: 5px;
+      .custom-icon {
+        font-size: 2rem;
+      }
     }
   }
 }
@@ -209,6 +251,10 @@ section.post-info {
     padding: 5px 8px;
     border-radius: 3px;
     color: white;
+    transition: @background-transition;
+    &:hover {
+      background: @gray_4;
+    }
   }
   .share-container {
     span {

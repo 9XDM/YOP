@@ -1,11 +1,22 @@
-<div style="max-width: 400px;">
-  <canvas id="myChart" width="400"></canvas>
-</div>
-<div id="cloud"></div>
+<section class="intro">
+  <h1>Year Of Programming</h1>
+  <h2>개발자, 일 년간의 회고</h2>
+</section>
+<section class="summary">
+  <div class="row">
+    <div class="col s12 m6">
+      <div id="cloud"></div>
+    </div>
+    <div class="col s12 m6">
+        <canvas id="myChart"></canvas>
+    </div>
+  </div>
+</section>
 <section class="posts">
   <ul class="row">
-    <li class="post y-card col s12 m6 l4" *ngFor="let post of posts | reverse">
-      <a routerLink="/posts/{{post.$key}}">
+    <li class="post col s12 m6 l4" *ngFor="let post of posts | reverse">
+      <div class="y-card">
+
         <div class="user">
           <img class="thumbnail circle responsive-img" [src]="post.authorPic"/>
           <p>{{post.author}}</p>
@@ -14,15 +25,18 @@
             <span class="like-number">{{post.starCount}}</span>
           </div>
         </div>
-        <h3>{{post.title}}</h3>
-        <div class="summary">{{post.body | removeMd}}</div>
-        <img class="thumbnail responsive-img" src="http://cfile30.uf.tistory.com/image/242BE13D587613BD236A4E"/>
-        <div class="divider"></div>
+        <a routerLink="/posts/{{post.$key}}">
+          <h3>{{post.title}}</h3>
+          <div class="summary">{{post.body | removeMd}}</div>
+          <img class="thumbnail responsive-img" src="http://cfile30.uf.tistory.com/image/242BE13D587613BD236A4E"/>
+        </a>
         <div class="date-container">
+          <div class="divider"></div>
           <span class="year">2016</span>
           <span class="created">2017-01-14</span>
         </div>
-      </a>
+
+      </div>
     </li>
   </ul>
 </section>
