@@ -8,10 +8,7 @@ import {Component} from "@angular/core";
       </div>
       <div class="footer-copyright">
           <div class="container">
-              <a href="#!">Terms</a>
-              <a href="#!">Security</a>
-              <a href="#!">Status</a>
-              <a href="#!">Help</a>
+              <a href="https://github.com/9XDM/YOP" target="_blank">View Github Source</a>
               <div class="right">© 2017 <a href="">9XD</a></div>
           </div>
       </div>
