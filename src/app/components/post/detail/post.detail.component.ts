@@ -24,6 +24,7 @@ export class PostDetailComponent implements OnInit {
 
   isLiked: boolean;
   isAuth: boolean = false;
+  isLogin: boolean = false;
   postKey: String;
   commentBody: String;
 
@@ -45,16 +46,22 @@ export class PostDetailComponent implements OnInit {
     this.authService.getSession()
       .take(1)
       .subscribe(session => {
-        this.user = session.auth;
-        this.postService.isLiked(this.postKey, this.user).subscribe(isLiked => {
-          this.isLiked = isLiked.$value
-        });
+        if (session) {
+          this.user = session.auth;
+          this.isLogin = true;
+
+          this.postService.isLiked(this.postKey, this.user).subscribe(isLiked => {
+            this.isLiked = isLiked.$value
+          });
+        }
 
         this.post.subscribe(post => {
           $(".post-contents")[0].innerHTML = marked(post.body);
 
-          if (post.uid === session.uid) {
-            this.isAuth = true;
+          if (session) {
+            if (post.uid === session.uid) {
+              this.isAuth = true;
+            }
           }
         });
       });
@@ -66,7 +73,11 @@ export class PostDetailComponent implements OnInit {
   }
 
   onLikeBtnClick() {
-    this.postService.toggleLike(this.postKey, this.user);
+    if (this.isLogin) {
+      this.postService.toggleLike(this.postKey, this.user);
+    } else {
+      alert("로그인이 필요한 기능입니다.");
+    }
   }
 
   onDeleteBtnClick() {

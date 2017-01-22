@@ -31,10 +31,13 @@
 <section class="comment y-card">
   <div class="comment-post">
     <div id="comment">
-      <div class="wrapper">
+      <div class="wrapper" *ngIf="isLogin">
         <img class="avatar" [src]="user?.photoURL"/>
         <textarea class="comment-text" placeholder="생각을 남겨주세요" [(ngModel)]="commentBody"></textarea>
         <input type="button" value="게시" (click)="onWriteBtnClick()"/>
+      </div>
+      <div class="wrapper" *ngIf="!isLogin">
+        <span>댓글을 작성하시려면 로그인 해주세요</span>
       </div>
     </div>
   </div>

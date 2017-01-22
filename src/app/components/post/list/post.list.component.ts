@@ -18,6 +18,7 @@ declare const $: any;
 export class PostListComponent implements OnInit {
   posts: Post[];
   user: User;
+  isLogin: boolean = false;
   isLiked: Boolean;
 
   constructor(private postService: PostService,
@@ -36,7 +37,10 @@ export class PostListComponent implements OnInit {
     this.authService.getSession()
       .take(1)
       .subscribe(session => {
-        this.user = session.auth;
+        if (session) {
+          this.user = session.auth;
+          this.isLogin = true;
+        }
 
         // this.postService.isLiked(this.postKey, this.user).subscribe(isLiked => {
         //   this.isLiked = isLiked.$value
@@ -45,8 +49,12 @@ export class PostListComponent implements OnInit {
   }
 
   onLikeBtnClick(postKey) {
-    this.postService.toggleLike(postKey, this.user).then((data) =>{
-      console.log(data)
-    });
+    if (this.isLogin) {
+      this.postService.toggleLike(postKey, this.user).then((data) =>{
+        console.log(data)
+      });
+    } else {
+      alert("로그인이 필요한 기능입니다.");
+    }
   }
 }

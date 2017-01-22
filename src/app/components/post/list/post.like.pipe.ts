@@ -7,7 +7,7 @@ import {User} from "../../../model/user.model";
 })
 export class IsLikedPipe implements PipeTransform{
   transform(post: Post, user: User) {
-    if(post.likes !== undefined){
+    if(post.likes !== undefined && user){
       try{
         return post.likes.hasOwnProperty(user.uid);
       }catch(e){
