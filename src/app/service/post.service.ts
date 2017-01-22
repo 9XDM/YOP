@@ -31,6 +31,26 @@ export class PostService {
     return this.af.database.list(`/post-comments/${postKey}`)
   }
 
+  getNextPost(postKey) {
+    return this.af.database.list('posts', {
+      query: {
+        orderByKey: true,
+        endAt: postKey,
+        limitToLast: 2
+      }
+    }).map(posts => posts[0])
+  }
+
+  getPrevPost(postKey) {
+    return this.af.database.list('posts', {
+      query: {
+        orderByKey: true,
+        startAt: postKey,
+        limitToFirst: 2
+      }
+    }).map(posts => posts[1])
+  }
+
   isLiked(postKey, user: User) {
     return this.af.database.object(`/posts/${postKey}/likes/${user.uid}`)
   }

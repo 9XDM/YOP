@@ -34,8 +34,7 @@ export class PostDetailComponent implements OnInit {
   constructor(private router: ActivatedRoute,
               private postService: PostService,
               private authService: AuthService,
-              private route: Router,
-              private af: AngularFire) {
+              private route: Router) {
   }
 
   ngOnInit() {
@@ -99,27 +98,13 @@ export class PostDetailComponent implements OnInit {
   }
 
   onNextPostBtnClick() {
-    this.af.database.list('posts', {
-      query: {
-        orderByKey: true,
-        startAt: this.postKey,
-        limitToFirst: 2
-      }
-    }).subscribe(posts => {
-      let nextPost = posts[1];
+    this.postService.getNextPost(this.postKey).subscribe(nextPost => {
       this.route.navigate([`/posts/${nextPost.$key}`])
     })
   }
 
   onPrevPostBtnClick() {
-    this.af.database.list('posts', {
-      query: {
-        orderByKey: true,
-        endAt: this.postKey,
-        limitToLast: 2
-      }
-    }).subscribe(posts => {
-      let prevPost = posts[0];
+    this.postService.getPrevPost(this.postKey).subscribe(prevPost => {
       this.route.navigate([`/posts/${prevPost.$key}`])
     })
   }
