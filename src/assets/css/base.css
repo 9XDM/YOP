@@ -7,9 +7,6 @@ body {
 img {
   vertical-align: middle;
 }
-#cloud {
-  height: 300px;
-}
 nav,
 nav .nav-wrapper i,
 nav a.button-collapse,
@@ -19,6 +16,14 @@ nav a.button-collapse i {
 }
 a {
   color: #ffbb57;
+}
+.container {
+  max-width: 1030px;
+}
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 80%;
+  }
 }
 .like-container .custom-icon {
   color: #eaeaea;
@@ -131,6 +136,23 @@ section.intro.detail .created {
   float: right;
   color: #cdcdcd;
 }
+section.posts .year-container {
+  text-align: right;
+}
+section.posts .year-container a {
+  display: inline-block;
+  color: #9c9c9c;
+  width: 3.2rem;
+  font-size: 1.3rem;
+}
+section.posts .year-container a.active {
+  text-decoration: underline;
+  font-weight: 600;
+  color: #404040;
+}
+section.posts ul.row {
+  margin-top: 0;
+}
 section.posts .post {
   padding: 0.9rem 0.65rem;
 }
@@ -139,34 +161,43 @@ section.posts .post {
     padding: 0.6rem 0.2rem;
   }
 }
+@media (min-width: 992px) {
+  section.posts .post {
+    padding: 0.9rem 0.95rem;
+  }
+}
 section.posts .post > .y-card {
   padding: 5px 13px;
   color: #404040;
   position: relative;
 }
-section.posts .post > .y-card > a {
+section.posts .post > .y-card a.contents-section {
   display: block;
   overflow: hidden;
   padding-bottom: 35px;
   height: 360px;
 }
 @media (max-width: 599px) {
-  section.posts .post > .y-card > a {
+  section.posts .post > .y-card a.contents-section {
     height: auto;
   }
+}
+section.posts .post .user {
+  color: #6d6d6d;
 }
 section.posts .post .user img {
   width: 35px;
 }
 section.posts .post .user p {
   display: inline-block;
+  margin-left: 2px;
 }
 section.posts .post h3 {
   color: #404040;
   font-size: 1.5rem;
   margin: 0.9rem 0 0.6rem;
   text-overflow: ellipsis;
-  max-height: 3.2rem;
+  max-height: 3.1rem;
   overflow: hidden;
 }
 section.posts .post .summary {
@@ -184,11 +215,16 @@ section.posts .post img.thumbnail {
   margin-bottom: 0.3rem;
   max-height: 200px;
 }
+@media (max-width: 599px) {
+  section.posts .post img.thumbnail {
+    max-height: 300px;
+  }
+}
 section.posts .post .date-container {
   margin: 10px 0;
   position: absolute;
   bottom: 0;
-  width: 95.2%;
+  width: 90%;
 }
 section.posts .post .date-container .divider {
   background-color: #f9f9f9;
@@ -204,7 +240,6 @@ section.posts .post .date-container .created {
   font-weight: lighter;
   display: inline-block;
   float: right;
-  margin-right: 23px;
 }
 section.posts .post .like-container {
   float: right;
@@ -213,6 +248,13 @@ section.posts .post .like-container {
 }
 section.posts .post .like-container .custom-icon {
   font-size: 2rem;
+}
+#cloud {
+  height: 300px;
+}
+#myChart {
+  max-height: 300px;
+  max-width: 300px;
 }
 .post-detail.y-card {
   padding: 1.5rem;
@@ -309,6 +351,24 @@ section.comment .comment-list .comment .comment-wrapper .date {
   display: inline-block;
   font-size: 0.9rem;
   color: #cdcdcd;
+}
+section.related-posts {
+  text-align: center;
+  line-height: 3rem;
+  height: 3rem;
+  margin: 2rem 0;
+}
+section.related-posts a {
+  color: #cdcdcd;
+}
+section.related-posts a i {
+  vertical-align: middle;
+}
+section.related-posts .past-post {
+  float: left;
+}
+section.related-posts .next-post {
+  float: right;
 }
 footer.page-footer {
   background-color: #2d2d2d;

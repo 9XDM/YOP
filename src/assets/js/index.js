@@ -87,23 +87,11 @@ $(function() {
 
   $(".button-collapse").sideNav();
 
-  // $.getJSON("../data/nouns.json", words => {
-  //   $("#cloud").jQCloud(words, {
-  //     width: 500,
-  //     height: 500,
-  //     shape: 'rectangular'
-  //   });
-  // })
   $.getJSON("../data/nouns.json", words => {
     $("#cloud").jQCloud(words, {
       autoResize: true,
       shape: 'rectangular'
     });
   })
-  // $.getJSON("../data/nouns.json", words => {
-  //   $("#cloud").jQCloud(words, {
-  //     autoResize: true,
-  //     shape: 'rectangular'
-  //   });
-  // })
+  
 });

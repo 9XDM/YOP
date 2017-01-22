@@ -10,9 +10,6 @@ body {
 img {
   vertical-align: middle;
 }
-#cloud {
-  height: 300px;
-}
 
 //*-- MATERIALIZECSS DEFAULT *--//
 nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
@@ -21,6 +18,13 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 a {
   color: @main_1;
+}
+
+.container {
+  max-width: 1030px;
+  @media only screen and (min-width: 993px) {
+    width: 80%;
+  }
 }
 
 //*-- COMPONENTS *--//
@@ -155,32 +159,53 @@ section.intro {
 
 //*-- BLOG POST LIST *--//
 section.posts {
+  .year-container {
+    text-align: right;
+    a {
+      display: inline-block;
+      color: @gray_4;
+      width: 3.2rem;
+      font-size: 1.3rem;
+      &.active {
+        text-decoration: underline;
+        font-weight: 600;
+        color: @font-primary;
+      }
+    }
+  }
+  ul.row {
+    margin-top: 0;
+  }
   .post {
     padding: 0.9rem 0.65rem;
     @media @l-s {
       padding: 0.6rem 0.2rem;
     }
+    @media @l-l {
+      padding: 0.9rem 0.95rem;
+    }
     >.y-card {
       padding: 5px 13px;
       color: @font-primary;
       position: relative;
-      >a {
-        // height: 333px;
+      a.contents-section {
         display: block;
         overflow: hidden;
-            padding-bottom: 35px;
-            height: 360px;
-            @media @l-s {
-              height: auto;
-            }
+        padding-bottom: 35px;
+        height: 360px;
+        @media @l-s {
+          height: auto;
+        }
       }
     }
     .user {
+      color: @gray_5;
       img {
         width: 35px;
       }
       p {
         display: inline-block;
+        margin-left: 2px;
       }
     }
     h3 {
@@ -188,8 +213,8 @@ section.posts {
       font-size: 1.5rem;
       margin: 0.9rem 0 0.6rem;
       text-overflow: ellipsis;
-max-height: 3.2rem;
-overflow: hidden;
+      max-height: 3.1rem;
+      overflow: hidden;
     }
     .summary {
       font-size: 0.9rem;
@@ -205,12 +230,15 @@ overflow: hidden;
     img.thumbnail {
       margin-bottom: 0.3rem;
       max-height: 200px;
+      @media @l-s {
+        max-height: 300px;
+      }
     }
     .date-container {
       margin: 10px 0;
       position: absolute;
       bottom: 0;
-      width: 95.2%;
+      width: 90%;
       .divider {
         background-color: #f9f9f9;
         margin: 4.5px -0.9rem;
@@ -225,7 +253,6 @@ overflow: hidden;
         font-weight: lighter;
         display: inline-block;
         float: right;
-        margin-right: 23px;
       }
     }
     .like-container {
@@ -237,6 +264,15 @@ overflow: hidden;
       }
     }
   }
+}
+
+//*-- DATA CONTAINER *--//
+#cloud {
+  height: 300px;
+}
+#myChart {
+  max-height: 300px;
+  max-width: 300px;
 }
 
 //*-- BLOG DETAIL *--//
@@ -341,6 +377,27 @@ section.comment {
         }
       }
     }
+  }
+}
+section.related-posts {
+  text-align: center;
+  line-height: 3rem;
+  height: 3rem;
+  margin: 2rem 0;
+  a {
+    color: @gray_2;
+    i {
+      vertical-align: middle;
+    }
+  }
+  .past-post {
+    float: left;
+  }
+  .to-list {
+
+  }
+  .next-post {
+    float: right;
   }
 }
 
