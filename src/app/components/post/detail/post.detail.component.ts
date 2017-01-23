@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 import {PostService} from "../../../service/post.service";
 import {FirebaseObjectObservable, FirebaseListObservable, AngularFire} from "angularfire2";
 import {Comment} from "../../../model/comment.model";
@@ -38,6 +38,18 @@ export class PostDetailComponent implements OnInit {
               private postService: PostService,
               private authService: AuthService,
               private route: Router) {
+    route.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.post.subscribe(post => {
+          if(event.urlAfterRedirects.match(/\/posts\/-/)) {
+            $('.post-contents')[0].innerHTML = marked(post.body);
+          }
+          if (this.user) {
+            this.isAuth = post.uid === this.user.uid;
+          }
+        })
+      }
+    })
   }
 
   ngOnInit() {
@@ -62,16 +74,6 @@ export class PostDetailComponent implements OnInit {
             this.isLiked = isLiked.$value
           });
         }
-
-        this.post.subscribe(post => {
-          $(".post-contents")[0].innerHTML = marked(post.body);
-
-          if (session) {
-            if (post.uid === session.uid) {
-              this.isAuth = true;
-            }
-          }
-        });
       });
   }
 
