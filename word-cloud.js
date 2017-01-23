@@ -4,7 +4,7 @@ const fs = require('fs');
 const _ = require('lodash');
 
 const text = fs.readFileSync('./results.txt', 'utf8');
-const LIMIT_WORDS_NUMBER = 20;
+const LIMIT_WORDS_NUMBER = 13;
 
 // 인간지능 TF-IDF .....
 let isAllowKey = (word) => {
