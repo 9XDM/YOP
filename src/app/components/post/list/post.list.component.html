@@ -29,10 +29,7 @@
         <a class="user">
           <img class="thumbnail circle responsive-img" [src]="post.authorPic"/>
           <p>{{post.author}}</p>
-          <div class="like-container" (click)="onLikeBtnClick(post.$key)">
-            <span class="custom-icon icon-heart2" [class.active]="post | isLiked: user"></span>
-            <span class="like-number">{{ post.likeCount }}</span>
-          </div>
+          <span class="year right">2016</span>
         </a>
         <a class="contents-section" routerLink="/posts/{{post.$key}}">
           <h3>{{post.title}}</h3>
@@ -41,7 +38,10 @@
         </a>
         <div class="date-container">
           <div class="divider"></div>
-          <span class="year">2016</span>
+          <div class="like-container right" (click)="onLikeBtnClick(post.$key)">
+            <span class="custom-icon icon-heart2" [class.active]="post | isLiked: user"></span>
+            <span class="like-number">{{ post.likeCount }}</span>
+          </div>
           <span class="created">{{post.createDate | date:"yyyy-MM-dd"}}</span>
         </div>
 

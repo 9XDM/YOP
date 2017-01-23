@@ -29,10 +29,12 @@ a {
 
 //*-- COMPONENTS *--//
 .like-container {
+  display: inline-block;
+  vertical-align: middle;
   .custom-icon {
     color: @gray_1;
-    font-size: 2.4rem;
-    position: absolute;
+    font-size: 1.8rem;
+    // position: absolute;
     cursor: pointer;
     transition: @transition;
     &.active {
@@ -43,12 +45,14 @@ a {
     }
   }
   .like-number {
-    position: relative;
-    top: 5px;
-    left: 14px;
-    color: white;
-    font-size: 0.8rem;
-    font-weight: lighter;
+    vertical-align: super;
+    color: @gray_2;
+    // position: relative;
+    // top: 5px;
+    // left: 14px;
+    // color: white;
+    // font-size: 0.8rem;
+    // font-weight: lighter;
   }
 }
 .y-card {
@@ -237,6 +241,7 @@ section.posts {
     }
     .user {
       color: @gray_5;
+      font-weight: 400;
       img {
         width: 35px;
       }
@@ -271,11 +276,17 @@ section.posts {
       }
     }
     img.thumbnail {
-      margin-bottom: 0.8rem;
       max-height: 200px;
       @media @l-s {
         max-height: 300px;
       }
+    }
+    .year {
+      font-weight: 900;
+      display: inline-block;
+      margin-top: 1rem;
+      margin-right: 5px;
+      color: #e4e4e4;
     }
     .date-container {
       margin: 10px 0;
@@ -287,29 +298,16 @@ section.posts {
         margin: 4.5px -0.9rem;
         height: 2px;
       }
-      .year {
-        font-weight: 900;
-        display: inline-block;
-      }
       .created {
         color: @gray_3;
         font-weight: lighter;
         display: inline-block;
-        float: right;
+        margin-top: 5px;
       }
     }
     .like-container {
-      float: right;
-      margin-right: 22px;
-      margin-top: 5px;
-      .custom-icon {
-        font-size: 2.2rem;
-      }
-      .like-number {
-        top: 3px;
-        left: 13px;
-        font-size: 0.7rem;
-      }
+      padding-top: 2px;
+      margin-left: 6px;
     }
   }
 }

@@ -25,10 +25,13 @@ a {
     width: 80%;
   }
 }
+.like-container {
+  display: inline-block;
+  vertical-align: middle;
+}
 .like-container .custom-icon {
   color: #eaeaea;
-  font-size: 2.4rem;
-  position: absolute;
+  font-size: 1.8rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -39,12 +42,8 @@ a {
   color: #ED264E;
 }
 .like-container .like-number {
-  position: relative;
-  top: 5px;
-  left: 14px;
-  color: white;
-  font-size: 0.8rem;
-  font-weight: lighter;
+  vertical-align: super;
+  color: #cdcdcd;
 }
 .y-card {
   background: white;
@@ -222,6 +221,7 @@ section.posts .post > .y-card a.contents-section {
 }
 section.posts .post .user {
   color: #6d6d6d;
+  font-weight: 400;
 }
 section.posts .post .user img {
   width: 35px;
@@ -258,13 +258,19 @@ section.posts .post .summary.has-photo {
   max-height: 3.6em;
 }
 section.posts .post img.thumbnail {
-  margin-bottom: 0.8rem;
   max-height: 200px;
 }
 @media (max-width: 599px) {
   section.posts .post img.thumbnail {
     max-height: 300px;
   }
+}
+section.posts .post .year {
+  font-weight: 900;
+  display: inline-block;
+  margin-top: 1rem;
+  margin-right: 5px;
+  color: #e4e4e4;
 }
 section.posts .post .date-container {
   margin: 10px 0;
@@ -277,28 +283,15 @@ section.posts .post .date-container .divider {
   margin: 4.5px -0.9rem;
   height: 2px;
 }
-section.posts .post .date-container .year {
-  font-weight: 900;
-  display: inline-block;
-}
 section.posts .post .date-container .created {
   color: #bcbcbc;
   font-weight: lighter;
   display: inline-block;
-  float: right;
-}
-section.posts .post .like-container {
-  float: right;
-  margin-right: 22px;
   margin-top: 5px;
 }
-section.posts .post .like-container .custom-icon {
-  font-size: 2.2rem;
-}
-section.posts .post .like-container .like-number {
-  top: 3px;
-  left: 13px;
-  font-size: 0.7rem;
+section.posts .post .like-container {
+  padding-top: 2px;
+  margin-left: 6px;
 }
 #cloud {
   height: 300px;
