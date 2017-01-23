@@ -45,3 +45,6 @@ nouns.json
 Thumbs.db
 
 yarn.lock
+
+.firebaserc
+database.rules.json
