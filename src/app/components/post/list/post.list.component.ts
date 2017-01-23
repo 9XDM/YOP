@@ -115,8 +115,6 @@ export class PostListComponent implements OnInit {
           })
         });
 
-        $(".button-collapse").sideNav();
-
         $.getJSON("../data/nouns.json", words => {
           $("#cloud").jQCloud(words, {
             autoResize: true,
