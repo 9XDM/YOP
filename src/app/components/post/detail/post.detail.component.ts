@@ -12,7 +12,6 @@ declare const $: any;
 declare const marked: any;
 
 const size = 'width=626 height=436';
-const url = location.href;
 
 @Component({
   selector: 'post-detail-component',
@@ -105,7 +104,6 @@ export class PostDetailComponent implements OnInit {
 
   onNextPostBtnClick() {
     this.nextPostObservable.subscribe(nextPost => {
-      console.log(nextPost)
       this.route.navigate([`/posts/${nextPost.$key}`])
     })
   }
@@ -117,10 +115,12 @@ export class PostDetailComponent implements OnInit {
   }
 
   onShareInFacebook() {
+    let url = location.href;
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', size);
   }
 
   onShareInTwitter() {
+    let url = location.href;
     window.open(`https://twitter.com/share?url=${url}`, '_blank', size);
   }
 }
