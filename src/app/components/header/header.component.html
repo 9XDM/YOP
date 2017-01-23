@@ -1,10 +1,10 @@
 <header>
   <ul id="account-dropdown" class="dropdown-content">
-    <li><a id="sign-in-text" href="#">Signed as {{user?.displayName}}</a></li>
+    <li><a id="sign-in-text">Signed as {{user?.displayName}}</a></li>
     <li class="divider"></li>
-    <li id="menu-my-posts"><a routerLink="/posts/my">내가 쓴 회고</a></li>
+    <!-- <li id="menu-my-posts"><a routerLink="/posts/my">내가 쓴 회고</a></li>
     <li id="menu-my-like-posts"><a href="#!">내가 좋아한 회고</a></li>
-    <li class="divider"></li>
+    <li class="divider"></li> -->
     <li id="sign-out-button"><a (click)="onLogoutButtonClick()">로그아웃</a></li>
   </ul>
   <div class="navbar-fixed">
@@ -40,11 +40,11 @@
             </div>
           </li>
           <li id="sign-in-button" (click)="onLoginButtonClick()" [class.activate]="!isLoggedIn"><a>Login with <span class="custom-icon icon-github-alt"></span></a></li>
-          <li><a href="#!">내가 쓴 회고</a></li>
+          <!-- <li><a href="#!">내가 쓴 회고</a></li>
           <li><a href="#!">내가 좋아한 회고</a></li>
           <li>
             <div class="divider"></div>
-          </li>
+          </li> -->
           <li id="sign-out-button" (click)="onLogoutButtonClick()" [class.activate]="isLoggedIn"><a class="waves-effect">Logout</a></li>
         </ul>
         <a href="#" data-activates="slide-out" class="menu button-collapse"><span class="icon-th-menu"></span></a>

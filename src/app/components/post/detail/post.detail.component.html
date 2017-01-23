@@ -2,7 +2,7 @@
   <h1>{{(post | async)?.title}}</h1>
   <h2>
     <img class="thumbnail circle responsive-img" src="{{(post | async)?.authorPic}}"/>
-    개발자 <a>{{(post | async)?.author}}</a>의 <span class="year">{{(post | async)?.year}}</span>년
+    개발자 <a>{{(post | async)?.author}}</a>의 <span class="year">{{(post | async)?.year}}2016</span>년
     <div class="action">
       <span class="edit" *ngIf="isAuth" routerLink="/posts/write/{{postKey}}">
         <span class="icon-pencil"></span>
