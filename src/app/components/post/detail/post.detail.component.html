@@ -37,7 +37,8 @@
         <input type="button" value="게시" (click)="onWriteBtnClick()"/>
       </div>
       <div class="wrapper" *ngIf="!isLogin">
-        <span>댓글을 작성하시려면 로그인 해주세요</span>
+        <textarea class="comment-text" (click)="loginRequiredClick()" placeholder="생각을 남겨주세요" [(ngModel)]="commentBody"></textarea>
+        <input type="button" value="게시" (click)="loginRequiredClick()"/>
       </div>
     </div>
   </div>

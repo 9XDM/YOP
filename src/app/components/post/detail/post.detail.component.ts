@@ -84,8 +84,17 @@ export class PostDetailComponent implements OnInit {
   onLikeBtnClick() {
     if (this.isLogin) {
       this.postService.toggleLike(this.postKey, this.user);
+      return;
     } else {
       alert("로그인이 필요한 기능입니다.");
+    }
+  }
+
+  loginRequiredClick() {
+    if (confirm("로그인 하시겠습니까?")) {
+      this.authService.loginWithGithub();
+    } else {
+      return;
     }
   }
 
