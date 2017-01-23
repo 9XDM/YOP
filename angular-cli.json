@@ -31,6 +31,12 @@
   ],
   "addons": [],
   "packages": [],
+  "assets": [
+    "assets",
+    "data",
+    "vendor",
+    "favicon.ico"
+  ],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"
