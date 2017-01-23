@@ -39,9 +39,9 @@ export class PostDetailComponent implements OnInit {
               private authService: AuthService,
               private route: Router) {
     route.events.subscribe(event => {
-      document.body.scrollTop = 0;
       if (event instanceof NavigationEnd) {
         this.post.subscribe(post => {
+          window.scrollTo(0, 0);
           if(event.urlAfterRedirects.match(/\/posts\/-/)) {
             $('.post-contents')[0].innerHTML = marked(post.body);
           }
