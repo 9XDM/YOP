@@ -16,7 +16,6 @@ import {AuthService} from "./service/auth.service";
 import {RemoveMarkdownPipe} from "./pipe/remove-markdown.pipe";
 import {ReversePipe} from "./pipe/reverse.pipe";
 import {IsLikedPipe} from "./components/post/list/post.like.pipe";
-import {APP_BASE_HREF} from "@angular/common";
 
 // Must export the config
 export const firebaseConfig = {
@@ -50,7 +49,7 @@ export const firebaseConfig = {
     RouterModule.forRoot(router)
   ],
   // 서비스 injection
-  providers: [AuthService, {provide: APP_BASE_HREF, useValue : '/' }],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
