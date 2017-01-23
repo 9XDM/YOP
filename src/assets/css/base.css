@@ -217,6 +217,7 @@ section.posts .post > .y-card a.contents-section {
 @media (max-width: 599px) {
   section.posts .post > .y-card a.contents-section {
     height: auto;
+    padding-bottom: 55px;
   }
 }
 section.posts .post .user {
