@@ -90,6 +90,7 @@ nav.nav-main li.write a {
   color: white;
   padding-top: 2px;
   padding-right: 0;
+  cursor: pointer;
 }
 nav.nav-main li.write a:hover {
   background: inherit;
@@ -424,6 +425,7 @@ section.related-posts {
 }
 section.related-posts a {
   color: #cdcdcd;
+  cursor: pointer;
 }
 section.related-posts a i {
   vertical-align: middle;
