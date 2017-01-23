@@ -20,8 +20,6 @@ export class AuthService {
     this.af.auth.login({
       provider: AuthProviders.Github,
       method: AuthMethods.Popup,
-    }).then(() => {
-      location.reload();
     });
   }
 
@@ -30,8 +28,6 @@ export class AuthService {
   }
 
   logout() {
-    this.af.auth.logout().then(() => {
-      location.reload();
-    });
+    this.af.auth.logout();
   }
 }
