@@ -325,7 +325,7 @@ section.post-info .like-container {
 }
 section.post-info a.original-url {
   float: left;
-  margin-left: 3rem;
+  margin-left: 1.2rem;
   display: inline-block;
   background: #cdcdcd;
   padding: 5px 8px;
