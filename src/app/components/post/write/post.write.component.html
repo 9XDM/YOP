@@ -3,12 +3,20 @@
   <h2>일 년간의 당신을 알고싶어요</h2>
 </section>
 <section class="write-o y-card">
-  <input [(ngModel)]="title" placeholder="Title" id="input-title"/>
+  <input class="default-input" [(ngModel)]="title" placeholder="Title" id="input-title"/>
   <div class="post-detail">
-    <input type="text" [(ngModel)]="originalURL" placeholder="원본 링크 (optional)" />
-    <input type="file" image-upload
-           (imageSelected)="selected($event)">
-    <textarea id="writePost"></textarea>
+    <input class="default-input" type="text" [(ngModel)]="originalURL" placeholder="원본 링크 첨부" />
+  </div>
+  <textarea id="writePost"></textarea>
+  <div class="file-field input-field">
+    <div class="btn secondary-btn">
+      <span>썸네일 첨부</span>
+      <input class="default-input" type="file" image-upload
+      (imageSelected)="selected($event)">
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+    </div>
     <div class="action">
       <input class="block-btn submit" *ngIf="!isModified" type="button" value="올리기" (click)="onWriteBtnClick()"/>
       <input class="block-btn submit" *ngIf="isModified" type="button" value="수정" (click)="onModifyBtnClick()"/>

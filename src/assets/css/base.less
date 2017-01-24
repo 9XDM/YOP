@@ -20,6 +20,12 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 a {
   color: @main_1;
 }
+.default-input {
+  border-bottom: none !important;
+  &:focus {
+    box-shadow: 0 1px 0 0 #ffbb57 !important;
+  }
+}
 
 .container {
   max-width: 1030px;
@@ -68,6 +74,16 @@ img.avatar {
     background: darken(@main_1, 8%);
     transition: @background-transition;
   }
+}
+.secondary-btn {
+  background: @gray_2;
+  box-shadow: none;
+  border-radius: 1px;
+  &:hover {
+    background: @gray_2;
+    box-shadow: none;
+  }
+
 }
 .disabled {
   background: @gray_1;

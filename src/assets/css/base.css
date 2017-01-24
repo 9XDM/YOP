@@ -18,6 +18,12 @@ nav a.button-collapse i {
 a {
   color: #ffbb57;
 }
+.default-input {
+  border-bottom: none !important;
+}
+.default-input:focus {
+  box-shadow: 0 1px 0 0 #ffbb57 !important;
+}
 .container {
   max-width: 1030px;
 }
@@ -65,6 +71,15 @@ img.avatar {
 .block-btn:hover {
   background: #ffaa2e;
   transition: background 0.2s ease;
+}
+.secondary-btn {
+  background: #cdcdcd;
+  box-shadow: none;
+  border-radius: 1px;
+}
+.secondary-btn:hover {
+  background: #cdcdcd;
+  box-shadow: none;
 }
 .disabled {
   background: #eaeaea;
