@@ -5,7 +5,7 @@
 <section class="write-o y-card">
   <input [(ngModel)]="title" placeholder="Title" id="input-title"/>
   <div class="post-detail">
-    <input type="text" [(ngModel)]="originalURL" placeholder="원본 링크" />
+    <input type="text" [(ngModel)]="originalURL" placeholder="원본 링크 (optional)" />
     <input type="file" image-upload
            (imageSelected)="selected($event)">
     <textarea id="writePost"></textarea>
