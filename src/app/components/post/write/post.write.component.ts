@@ -62,6 +62,10 @@ export class PostWriteComponent implements OnInit {
         this.title = post.title;
         this.body = post.body;
         this.originalURL = post.originalURL;
+        this.imageSrc = post.imageURL;
+        if(this.imageSrc) {
+          $('input.file-path').val('등록된 썸네일이 있습니다.');
+        }
 
         this.simpleMde.value(this.body);
       });
