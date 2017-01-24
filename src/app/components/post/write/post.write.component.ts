@@ -35,7 +35,7 @@ export class PostWriteComponent implements OnInit {
   title: String;
   body: String;
   simpleMde: any;
-  originalURL: String;
+  originalURL: String = "";
   isModified: boolean = false;
 
   constructor(private activatedRouter: ActivatedRoute,
