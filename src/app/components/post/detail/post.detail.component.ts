@@ -45,7 +45,7 @@ export class PostDetailComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.post.subscribe(post => {
           window.scrollTo(0, 0);
-          if(event.urlAfterRedirects.match(/\/posts\/-/)) {
+          if (event.urlAfterRedirects.match(/\/posts\/-/)) {
             $('.post-contents')[0].innerHTML = marked(post.body);
             this.imageURL = post.imageURL;
             this.title = post.title;
@@ -135,7 +135,10 @@ export class PostDetailComponent implements OnInit {
   onShareInFacebook() {
     let url = location.href;
     let image = this.imageURL || 'https://yop.cool/assets/img/share.png';
-    window.open(`https://www.facebook.com/v2.1/dialog/feed?&app_id=1404961129515494&caption=YOP: Year Of Programmers&description=${encodeURIComponent(this.body)}&display=popup&locale=ko_KR&name=${encodeURIComponent(this.title)}&link=${encodeURIComponent(url)}&picture=${image}&version=v2.1`);
+    window.open(`https://www.facebook.com/v2.1/dialog/feed?&app_id=1404961129515494&caption=YOP: Year Of Programmers&description=${encodeURIComponent(this.body)}&display=popup&locale=ko_KR&name=${encodeURIComponent(this.title)}&link=${encodeURIComponent(url)}&picture=${image}&version=v2.1`,
+      'facebookShare',
+      'toolbar=0,status=0,width=625,height=435'
+    );
   }
 
   onShareInTwitter() {
