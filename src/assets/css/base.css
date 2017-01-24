@@ -3,6 +3,7 @@ body {
   background: #f9f9f9;
   color: #404040;
   font-weight: 300;
+  overflow-x: hidden;
 }
 img {
   vertical-align: middle;
@@ -36,9 +37,6 @@ a {
   transition: all 0.3s ease;
 }
 .like-container .custom-icon.active {
-  color: #ED264E;
-}
-.like-container .custom-icon:hover {
   color: #ED264E;
 }
 .like-container .like-number {

@@ -6,6 +6,7 @@ body {
   background: @background-color;
   color: @font-primary;
   font-weight: 300;
+  overflow-x: hidden;
 }
 img {
   vertical-align: middle;
@@ -34,25 +35,15 @@ a {
   .custom-icon {
     color: @gray_1;
     font-size: 1.8rem;
-    // position: absolute;
     cursor: pointer;
     transition: @transition;
     &.active {
-      color: @main_0;
-    }
-    &:hover {
       color: @main_0;
     }
   }
   .like-number {
     vertical-align: super;
     color: @gray_2;
-    // position: relative;
-    // top: 5px;
-    // left: 14px;
-    // color: white;
-    // font-size: 0.8rem;
-    // font-weight: lighter;
   }
 }
 .y-card {
