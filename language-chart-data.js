@@ -12,7 +12,7 @@ _.forEach(languageArray, data => {
   languageObject[data] = 0;
 })
 
-const laguageRegex = /javascript|자바스크립트|ecmascript|html|css|(c\+\+)|(c\#)|\bc\b|c언어|python|파이썬|ruby|루비|go|haskell|하스켈|java|자바|scala|스칼라|perl|swift|스위프트|rust|러스트|Kotlin|코틀린|lisp|php/g;
+const laguageRegex = /javascript|자바스크립트|ecmascript|html|css|(c\+\+)|(c\#)|\bc\b|c언어|python|파이썬|ruby|루비|\bgo\b|haskell|하스켈|java|자바|scala|스칼라|perl|swift|스위프트|rust|러스트|Kotlin|코틀린|lisp|php/g;
 
 const languages = _.toLower(text).match(laguageRegex);
 
