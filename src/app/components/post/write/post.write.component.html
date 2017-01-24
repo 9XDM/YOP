@@ -10,8 +10,8 @@
            (imageSelected)="selected($event)">
     <textarea id="writePost"></textarea>
     <div class="action">
-      <input class="block-btn" *ngIf="!isModified" type="button" value="올리기" (click)="onWriteBtnClick()"/>
-      <input class="block-btn" *ngIf="isModified" type="button" value="수정" (click)="onModifyBtnClick()"/>
+      <input class="block-btn submit" *ngIf="!isModified" type="button" value="올리기" (click)="onWriteBtnClick()"/>
+      <input class="block-btn submit" *ngIf="isModified" type="button" value="수정" (click)="onModifyBtnClick()"/>
     </div>
   </div>
 </section>

@@ -66,6 +66,13 @@ img.avatar {
   background: #ffaa2e;
   transition: background 0.2s ease;
 }
+.disabled {
+  background: #eaeaea;
+  cursor: initial !important;
+}
+.disabled:hover {
+  background: #eaeaea;
+}
 nav.nav-main {
   background: white;
   color: #404040;

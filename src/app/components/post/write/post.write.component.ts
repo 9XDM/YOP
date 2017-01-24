@@ -74,8 +74,10 @@ export class PostWriteComponent implements OnInit {
   }
 
   onWriteBtnClick() {
-    if (this.validation()) {
-      return;
+    if(!this.title || !this.simpleMde.value()) {
+      alert('제목과 내용을 입력해주세요.');
+    } else {
+        $('.submit').val('올리는중').addClass('disabled');
     }
     this.postService.writePost(this.title, this.simpleMde.value(), this.originalURL, this.imageSrc, this.user)
       .then(() => {
@@ -85,8 +87,10 @@ export class PostWriteComponent implements OnInit {
   }
 
   onModifyBtnClick() {
-    if (this.validation()) {
-      return;
+    if(!this.title || !this.simpleMde.value()) {
+      alert('제목과 내용을 입력해주세요.');
+    } else {
+        $('.submit').val('올리는중').addClass('disabled');
     }
     this.postService.modifyPost(this.postKey, this.title, this.simpleMde.value(), this.imageSrc, this.originalURL)
       .then(() => {
@@ -107,15 +111,5 @@ export class PostWriteComponent implements OnInit {
       this.imageSrc = uploadTask.snapshot.downloadURL;
       alert('이미지 업로드에 성공 했습니다.');
     });
-  }
-
-  private validation() {
-    if (!this.title) {
-      alert('제목을 적어주세요!');
-      return true;
-    } else if (!this.simpleMde.value(this.body)) {
-      alert('본문을 적어주세요!');
-      return true;
-    }
   }
 }
