@@ -24,6 +24,11 @@ a {
 .default-input:focus {
   box-shadow: 0 1px 0 0 #ffbb57 !important;
 }
+.default-input.thumb {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 .container {
   max-width: 1030px;
 }
@@ -73,6 +78,7 @@ img.avatar {
   transition: background 0.2s ease;
 }
 .secondary-btn {
+  position: relative;
   background: #cdcdcd;
   box-shadow: none;
   border-radius: 1px;

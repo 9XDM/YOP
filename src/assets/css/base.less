@@ -25,6 +25,12 @@ a {
   &:focus {
     box-shadow: 0 1px 0 0 #ffbb57 !important;
   }
+
+  &.thumb {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .container {
@@ -76,6 +82,7 @@ img.avatar {
   }
 }
 .secondary-btn {
+  position: relative;
   background: @gray_2;
   box-shadow: none;
   border-radius: 1px;

@@ -11,11 +11,11 @@
   <div class="file-field input-field">
     <div class="btn secondary-btn">
       <span>썸네일 첨부</span>
-      <input class="default-input" type="file" image-upload
+      <input class="default-input thumb" type="file" image-upload
       (imageSelected)="selected($event)">
     </div>
     <div class="file-path-wrapper">
-      <input class="file-path validate" type="text">
+      <input class="file-path validate" type="text" readonly>
     </div>
     <div class="action">
       <input class="block-btn submit" *ngIf="!isModified" type="button" value="올리기" (click)="onWriteBtnClick()"/>
