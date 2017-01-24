@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?uqarnt');
-  src:  url('../fonts/icomoon.eot?uqarnt#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?uqarnt') format('truetype'),
-    url('../fonts/icomoon.woff?uqarnt') format('woff'),
-    url('../fonts/icomoon.svg?uqarnt#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?48c0nz');
+  src:  url('../fonts/icomoon.eot?48c0nz#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?48c0nz') format('truetype'),
+    url('../fonts/icomoon.woff?48c0nz') format('woff'),
+    url('../fonts/icomoon.svg?48c0nz#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -27,11 +27,17 @@
 .icon-th-menu:before {
   content: "\e905";
 }
+.icon-comment:before {
+  content: "\e90b";
+}
 .icon-pen-alt-fill:before {
   content: "\e904";
 }
 .icon-feather:before {
   content: "\e900";
+}
+.icon-bubble:before {
+  content: "\e90c";
 }
 .icon-twitter:before {
   content: "\e907";
