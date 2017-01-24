@@ -99,6 +99,7 @@ export class PostWriteComponent implements OnInit {
       alert(error);
     }, () => {
       this.imageSrc = uploadTask.snapshot.downloadURL;
+      alert('이미지 업로드에 성공 했습니다.');
     });
   }
 }
