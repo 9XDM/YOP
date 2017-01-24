@@ -30,6 +30,9 @@ export class PostDetailComponent implements OnInit {
   isLogin: boolean = false;
   postKey: String;
   commentBody: String;
+  imageURL: String;
+  title: string;
+  body: string;
 
   nextPostObservable: Observable<any>;
   prevPostObservable: Observable<any>;
@@ -44,6 +47,9 @@ export class PostDetailComponent implements OnInit {
           window.scrollTo(0, 0);
           if(event.urlAfterRedirects.match(/\/posts\/-/)) {
             $('.post-contents')[0].innerHTML = marked(post.body);
+            this.imageURL = post.imageURL;
+            this.title = post.title;
+            this.body = post.body;
           }
           if (this.user) {
             this.isAuth = post.uid === this.user.uid;
@@ -128,7 +134,8 @@ export class PostDetailComponent implements OnInit {
 
   onShareInFacebook() {
     let url = location.href;
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', size);
+    let image = this.imageURL || 'https://yop.cool/assets/img/share.png';
+    window.open(`https://www.facebook.com/v2.1/dialog/feed?&app_id=545938832225069&description=${encodeURIComponent(this.body)}&display=popup&locale=ko_KR&name=${encodeURIComponent("[YOP]" + this.title)}&link=${encodeURIComponent(url)}&picture=${image}&version=v2.1`);
   }
 
   onShareInTwitter() {

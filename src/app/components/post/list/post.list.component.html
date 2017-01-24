@@ -34,7 +34,7 @@
         <a class="contents-section" routerLink="/posts/{{post.$key}}">
           <h3>{{post.title}}</h3>
           <div class="{{post.imageURL ? 'summary has-photo' : 'summary'}}">{{post.body | removeMd}}</div>
-          <img *ngIf="post.imageURL" class="thumbnail responsive-img" src="{{post?.imageURL}}"/>
+          <img *ngIf="post.imageURL" class="thumbnail responsive-img full-size" src="{{post?.imageURL}}"/>
         </a>
         <div class="date-container">
           <div class="divider"></div>
