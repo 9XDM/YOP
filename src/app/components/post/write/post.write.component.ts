@@ -101,14 +101,17 @@ export class PostWriteComponent implements OnInit {
 
   selected(imageResult: ImageResult) {
     let uploadTask = storageRef.child(imageResult.file.name + new Date().getMilliseconds()).put(imageResult.file);
+    $('.submit').val('올리는중').addClass('disabled');
 
     uploadTask.on('state_changed', (snapshot) => {
       // Observe state change events such as progress, pause, and resume
       // See below for more detail
     }, (error) => {
       alert(error);
+      $('.submit').val('올리기').removeClass('disabled');
     }, () => {
       this.imageSrc = uploadTask.snapshot.downloadURL;
+      $('.submit').val('올리기').removeClass('disabled');
       alert('이미지 업로드에 성공 했습니다.');
     });
   }
