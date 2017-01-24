@@ -33,7 +33,7 @@ const colorScheme = {
     "C#": "#FFB563",
     "CSS": "#F9DE79",
     "Javascript": "#FFCE56",
-    "Python": "#29C6CD",
+    "Python": "#5a96c4",
     "LISP": "#8BC34A",
     "Haskell": "#29b544",
     "C++": "#415F9D",
