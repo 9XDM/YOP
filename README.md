@@ -1,31 +1,43 @@
-# YopAngular
+# YOP: Year Of Programming
+개발자 회고록 아카이브
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
+![](./src/assets/img/share.png) </br>
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+연말이 되면 각종 블로그, SNS에 개발자들의 `1년 회고`가 많이 올라옵니다.
+그 곳엔 1년 동안의 농축된 생각이 담겨있어 놓치지 않고 챙겨보곤 했습니다.
 
-## Code scaffolding
+이들을 모아 볼 수 있는 장소가 있다면 어떨까요?
+처음 개발을 시작한 사람부터, 매너리즘에 빠진 주니어 개발자, 10년차 베테랑 개발자.
+어떤 사람이라도 생각을 공유하고 다른 이들의 1년을 볼 수 있습니다.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+지금 바로 올려보세요.
+https://yop.cool/
 
-## Build
+## Technical Stack
+Angular2, Firebase
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Installation
 
-## Running unit tests
+```shell
+# 의존성 설치
+$ npm install
+$ bower install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# 데이터 분석
+$ node data-mining.js
+$ node language-chart-data.js
+$ node word-cloud.js
 
-## Running end-to-end tests
+# 앵귤러 빌드
+$ ng serve
+```
+- `data-mining.js`: firebase를 이용해서 모든 Posts data의 body를 parsing하고 `results.txt`로 저장합니다.
+단 firebase config 설정을 미리 하셔야합니다.
+- `language-char-data`.js: Javascript의 `.match` method를 이용해서 Programming Language를 parsing하고 데이터를 추출합니다. colorScheme Object를 수정하면 각 언어의 색을 바꿀 수 있습니다. `results.txt`가 있어야만 제대로 작동하고 결과물로 `chart-data.json`을 만듭니다.
+- `word-cloud.js`: Twitter에서 만든 한글 형태소 분석기를 Wrapping한 node-twitter-korean-text 라이브러리를 사용합니다. `results.txt`의 string을 불러와 wordCloud에서 원하는 형태의 Data로 만들어 `nouns.json` 파일로 만들어줍니다. 단, node-twitter-korean-text를 이용하려면 local에 java가 설치되어있어야 합니다.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+## Contributing
+[프로젝트 보드](https://github.com/9XDM/YOP/projects/)에서 이슈를 확인해주세요.
 
-## Deploying to GitHub Pages
-
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+[MIT license](https://opensource.org/licenses/MIT)
