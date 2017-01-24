@@ -12,7 +12,19 @@ declare const Chart: any;
 @Component({
   selector: 'post-component',
   providers: [PostService],
-  templateUrl: 'post.list.component.html'
+  templateUrl: 'post.list.component.html',
+  styles: [`
+    .progress {
+      display: none;
+    }
+    .progress.active {
+      display: block;
+      background-color: RGB(255, 177, 95);
+    }
+    .progress .indeterminate{
+    background-color: RGB(255, 20, 78);
+    }
+`]
 })
 
 

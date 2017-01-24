@@ -24,6 +24,11 @@
 </section>
 <section class="posts">
   <ul class="row">
+    <li class="col s12 m12 l12">
+      <div class="progress" [class.active]="!posts">
+        <div class="indeterminate"></div>
+      </div>
+    </li>
     <li class="post col s12 m6 l4" *ngFor="let post of posts | reverse">
       <div class="y-card">
         <a class="user">
@@ -44,7 +49,6 @@
           </div>
           <span class="created">{{post.createDate | date:"yyyy-MM-dd"}}</span>
         </div>
-
       </div>
     </li>
   </ul>
