@@ -90,6 +90,7 @@ export class PostService {
       author: user.displayName,
       authorPic: user.photoURL,
       uid: user.uid,
+      githubURL: user.githubURL,
       createDate: firebase.database.ServerValue.TIMESTAMP,
       likeCount: 0,
       title,

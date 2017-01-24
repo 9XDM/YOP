@@ -9,5 +9,6 @@ export class Post {
   uid;
   year;
   originalURL;
+  githubURL;
   createDate;
 }
