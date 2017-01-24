@@ -74,6 +74,9 @@ export class PostWriteComponent implements OnInit {
   }
 
   onWriteBtnClick() {
+    if (this.validation()) {
+      return;
+    }
     this.postService.writePost(this.title, this.simpleMde.value(), this.originalURL, this.imageSrc, this.user)
       .then(() => {
         alert('회고 작성이 완료 되었습니다.');
@@ -82,6 +85,9 @@ export class PostWriteComponent implements OnInit {
   }
 
   onModifyBtnClick() {
+    if (this.validation()) {
+      return;
+    }
     this.postService.modifyPost(this.postKey, this.title, this.simpleMde.value(), this.imageSrc, this.originalURL)
       .then(() => {
         alert('회고 수정이 완료 되었습니다.');
@@ -101,5 +107,15 @@ export class PostWriteComponent implements OnInit {
       this.imageSrc = uploadTask.snapshot.downloadURL;
       alert('이미지 업로드에 성공 했습니다.');
     });
+  }
+
+  private validation() {
+    if (!this.title) {
+      alert('제목을 적어주세요!');
+      return true;
+    } else if (!this.simpleMde.value(this.body)) {
+      alert('본문을 적어주세요!');
+      return true;
+    }
   }
 }
