@@ -295,7 +295,6 @@ section.posts .post img.thumbnail {
 }
 section.posts .post img.thumbnail.full-size {
   width: 100%;
-  height: 100%;
 }
 section.posts .post .year {
   font-weight: 900;
