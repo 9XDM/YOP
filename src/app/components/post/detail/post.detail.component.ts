@@ -135,7 +135,7 @@ export class PostDetailComponent implements OnInit {
   onShareInFacebook() {
     let url = location.href;
     let image = this.imageURL || 'https://yop.cool/assets/img/share.png';
-    window.open(`https://www.facebook.com/v2.1/dialog/feed?&app_id=545938832225069&description=${encodeURIComponent(this.body)}&display=popup&locale=ko_KR&name=${encodeURIComponent("[YOP]" + this.title)}&link=${encodeURIComponent(url)}&picture=${image}&version=v2.1`);
+    window.open(`https://www.facebook.com/v2.1/dialog/feed?&app_id=1404961129515494&caption='YOP: Year Of Programmers'&description=${encodeURIComponent(this.body)}&display=popup&locale=ko_KR&name=${encodeURIComponent("[YOP]" + this.title)}&link=${encodeURIComponent(url)}&picture=${image}&version=v2.1`);
   }
 
   onShareInTwitter() {
