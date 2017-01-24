@@ -60,6 +60,7 @@ img.avatar {
   border: none;
   background: #ffbb57;
   color: white;
+  outline: none;
 }
 .block-btn:hover {
   background: #ffaa2e;
