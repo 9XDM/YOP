@@ -6,6 +6,8 @@
   <input [(ngModel)]="title" placeholder="Title" id="input-title"/>
   <div class="post-detail">
     <input type="text" [(ngModel)]="originalURL" placeholder="원본 링크" />
+    <input type="file" image-upload
+           (imageSelected)="selected($event)">
     <textarea id="writePost"></textarea>
     <div class="action">
       <input class="block-btn" *ngIf="!isModified" type="button" value="올리기" (click)="onWriteBtnClick()"/>

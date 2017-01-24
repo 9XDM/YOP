@@ -85,7 +85,7 @@ export class PostService {
     });
   }
 
-  writePost(title, body, originalURL, user: User) {
+  writePost(title, body, originalURL, imageURL, user: User) {
     return this.af.database.list('/posts/').push({
       author: user.displayName,
       authorPic: user.photoURL,
@@ -94,15 +94,17 @@ export class PostService {
       likeCount: 0,
       title,
       body,
-      originalURL
+      originalURL,
+      imageURL
     })
   }
 
-  modifyPost(postKey, title, body, originalURL) {
+  modifyPost(postKey, title, body, imageURL, originalURL) {
     return this.af.database.object(`/posts/${postKey}`).update({
       title,
       body,
-      originalURL
+      originalURL,
+      imageURL
     })
   }
 

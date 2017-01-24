@@ -5,6 +5,7 @@ export class Post {
   likeCount;
   likes;
   title;
+  imageURL;
   uid;
   year;
   originalURL;

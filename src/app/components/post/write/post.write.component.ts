@@ -5,9 +5,20 @@ import {FirebaseObjectObservable} from "angularfire2";
 import {Post} from "../../../model/post.model";
 import {AuthService} from "../../../service/auth.service";
 import {User} from "../../../model/user.model";
+import {ImageResult, ResizeOptions} from "ng2-imageupload";
+import * as firebase from 'firebase';
+
+firebase.initializeApp({
+  apiKey: "AIzaSyDRWInNTqMZMkbbFxeJfbjHN3dwSZLJbKI",
+  authDomain: "yopyop-5e569.firebaseapp.com",
+  databaseURL: "https://yopyop-5e569.firebaseio.com",
+  storageBucket: "yopyop-5e569.appspot.com",
+  messagingSenderId: "798678080282"
+});
 
 declare const $: any;
 declare const SimpleMDE: any;
+const storageRef = firebase.storage().ref();
 
 @Component({
   selector: 'post-write-component',
@@ -19,6 +30,7 @@ export class PostWriteComponent implements OnInit {
   postObservable: FirebaseObjectObservable<Post>;
   user: User;
   postKey: String;
+  imageSrc: string = "";
 
   title: String;
   body: String;
@@ -62,7 +74,7 @@ export class PostWriteComponent implements OnInit {
   }
 
   onWriteBtnClick() {
-    this.postService.writePost(this.title, this.simpleMde.value(), this.originalURL, this.user)
+    this.postService.writePost(this.title, this.simpleMde.value(), this.originalURL, this.imageSrc, this.user)
       .then(() => {
         alert('회고 작성이 완료 되었습니다.');
         this.route.navigate(['/']);
@@ -70,10 +82,23 @@ export class PostWriteComponent implements OnInit {
   }
 
   onModifyBtnClick() {
-    this.postService.modifyPost(this.postKey, this.title, this.simpleMde.value(), this.originalURL)
+    this.postService.modifyPost(this.postKey, this.title, this.simpleMde.value(), this.imageSrc, this.originalURL)
       .then(() => {
         alert('회고 수정이 완료 되었습니다.');
         this.route.navigate(['/']);
       });
+  }
+
+  selected(imageResult: ImageResult) {
+    let uploadTask = storageRef.child(imageResult.file.name + new Date().getMilliseconds()).put(imageResult.file);
+
+    uploadTask.on('state_changed', (snapshot) => {
+      // Observe state change events such as progress, pause, and resume
+      // See below for more detail
+    }, (error) => {
+      alert(error);
+    }, () => {
+      this.imageSrc = uploadTask.snapshot.downloadURL;
+    });
   }
 }
