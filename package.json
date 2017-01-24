@@ -1,7 +1,7 @@
 {
   "name": "YOP",
   "version": "0.0.1",
-  "description": "Year Of Programming",
+  "description": "Year Of Programmers",
   "license": "MIT",
   "main": "gulpfile.js",
   "angular-cli": {},
