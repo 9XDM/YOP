@@ -137,7 +137,13 @@ const chartData = {
     ]
 }
 
-fs.writeFile('./src/data/chart-data.json', JSON.stringify(chartData), function(err) {
+const dir = __dirname + '/src/data';
+
+if (!fs.existsSync(dir)){
+  fs.mkdirSync(dir);
+}
+
+fs.writeFile(`${dir}/chart-data.json`, JSON.stringify(chartData), function(err) {
   if(err) throw err;
   console.log('File write completed');
 });
