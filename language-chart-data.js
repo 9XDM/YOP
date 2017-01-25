@@ -5,8 +5,8 @@ const fs = require('fs');
 const text = fs.readFileSync('./results.txt', 'utf8');
 
 const languageArray = [
-  'Javascript','HTML', 'CSS', 'C++', 'C#', 'C', 'Python', 'Ruby' ,'GO', 'Haskell',
-  'Java', 'Scala', 'Perl', 'Swift', 'Rust', 'Kotlin', 'LISP', 'PHP',
+  'Javascript', 'TypeScript', 'HTML', 'CSS', 'C++', 'C#', 'C', 'Python', 'Ruby' ,'GO',
+  'Haskell', 'Java', 'Scala', 'Perl', 'Swift', 'Rust', 'Kotlin', 'LISP', 'Elixir', 'PHP',
 ];
 
 const lowerCasedLanguageArray = languageArray.map((language) => _.toLower(language));
@@ -14,6 +14,7 @@ const lowerCasedLanguageArray = languageArray.map((language) => _.toLower(langua
 const languageSynonyms = {
   자바스크립트: 'javascript',
   ecmascript: 'javascript',
+  타입스크립트: 'typescript',
   c언어: 'c',
   파이썬: 'python',
   루비: 'ruby',
@@ -21,6 +22,7 @@ const languageSynonyms = {
   스칼라: 'scala',
   스위프트: 'swift',
   러스트: 'rust',
+  엘릭서: 'elixir',
   코틀린: 'kotlin',
 };
 
@@ -61,9 +63,11 @@ const colorScheme = {
     "C#": "#FFB563",
     "CSS": "#F9DE79",
     "Javascript": "#FFCE56",
+    "TypeScript": "#41C1C1",
     "Python": "#5a96c4",
     "LISP": "#8BC34A",
     "Haskell": "#29b544",
+    "Elixir": "#543462",
     "C++": "#415F9D",
     "Etc": "#E7E9ED"
 };
