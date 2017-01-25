@@ -9,6 +9,8 @@ const languageArray = [
   'Java', 'Scala', 'Perl', 'Swift', 'Rust', 'Kotlin', 'LISP', 'PHP',
 ];
 
+const lowerCasedLanguageArray = languageArray.map((language) => _.toLower(language));
+
 const languageSynonyms = {
   자바스크립트: 'javascript',
   ecmascript: 'javascript',
@@ -67,43 +69,10 @@ const colorScheme = {
 };
 
 _.forEach(countObject, (_count, name) => {
-  if (name === 'javascript' || name === '자바스크립트' || name === 'ecmascript') {
-   languageObject["Javascript"] += countObject[name];
-  } else if (name === 'html') {
-   languageObject["HTML"] += countObject[name];
-  } else if (name === 'css') {
-   languageObject["CSS"] += countObject[name];
-  } else if (name === 'c++') {
-   languageObject["C++"] += countObject[name];
-  } else if (name === 'c#') {
-   languageObject["C#"] += countObject[name];
-  } else if (name === 'c' || name === 'c언어') {
-   languageObject["C"] += countObject[name];
-  } else if (name === 'python' || name === '파이썬') {
-   languageObject["Python"] += countObject[name];
-  } else if (name === 'ruby' || name === '루비') {
-   languageObject["Ruby"] += countObject[name];
-  } else if (name === 'go') {
-   languageObject["GO"] += countObject[name];
-  } else if (name === 'haskell' || name === '하스켈') {
-   languageObject["Haskell"] += countObject[name];
-  } else if (name === 'java' || name === '자바') {
-   languageObject["Java"] += countObject[name];
-  } else if (name === 'scala' || name === '스칼라') {
-   languageObject["Scala"] += countObject[name];
-  } else if (name === 'perl') {
-   languageObject["Perl"] += countObject[name];
-  } else if (name === 'swift' || name === '스위프트') {
-   languageObject["Swift"] += countObject[name];
-  } else if (name === 'rust' || name === '러스트') {
-   languageObject["Rust"] += countObject[name];
-  } else if (name === 'kotlin' || name === '코틀린') {
-   languageObject["Kotlin"] += countObject[name];
-  } else if (name === 'lisp') {
-   languageObject["LISP"] += countObject[name];
-  } else if (name === 'php') {
-   languageObject["PHP"] += countObject[name];
-  }
+  const keyIndex = lowerCasedLanguageArray.indexOf(languageSynonyms[name] || name);
+  const key = languageArray[keyIndex];
+
+  languageObject[key] += countObject[name];
 })
 
 function sortObject(obj) {
@@ -112,8 +81,8 @@ function sortObject(obj) {
   for (let prop in obj) {
     if (obj.hasOwnProperty(prop)) {
       arr.push({
-        'key': prop,
-        'value': obj[prop]
+        key: prop,
+        value: obj[prop]
       });
     }
   }
