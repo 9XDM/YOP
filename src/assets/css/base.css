@@ -3,7 +3,7 @@ body {
   background: #f9f9f9;
   color: #404040;
   font-weight: 300;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 img {
   vertical-align: middle;
