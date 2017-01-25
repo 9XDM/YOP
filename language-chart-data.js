@@ -12,9 +12,9 @@ _.forEach(languageArray, data => {
   languageObject[data] = 0;
 })
 
-const laguageRegex = /javascript|자바스크립트|ecmascript|html|css|(c\+\+)|(c\#)|\bc\b|c언어|python|파이썬|ruby|루비|\bgo\b|haskell|하스켈|java|자바|scala|스칼라|perl|swift|스위프트|rust|러스트|Kotlin|코틀린|lisp|php/g;
+const languageRegex = /javascript|자바스크립트|ecmascript|html|css|(c\+\+)|(c\#)|\bc\b|c언어|python|파이썬|ruby|루비|\bgo\b|haskell|하스켈|java|자바|scala|스칼라|perl|swift|스위프트|rust|러스트|Kotlin|코틀린|lisp|php/g;
 
-const languages = _.toLower(text).match(laguageRegex);
+const languages = _.toLower(text).match(languageRegex);
 
 const countObject = _.countBy(languages);
 
@@ -40,7 +40,7 @@ const colorScheme = {
     "Etc": "#E7E9ED"
 };
 
-_.forEach(countObject, (count, name) => {
+_.forEach(countObject, (_count, name) => {
   if (name === 'javascript' || name === '자바스크립트' || name === 'ecmascript') {
    languageObject["Javascript"] += countObject[name];
   } else if (name === 'html') {
@@ -67,8 +67,8 @@ _.forEach(countObject, (count, name) => {
    languageObject["Scala"] += countObject[name];
   } else if (name === 'perl') {
    languageObject["Perl"] += countObject[name];
-  } else if (name === 'Swift' || name === '스위프트') {
-   languageObject["swift"] += countObject[name];
+  } else if (name === 'swift' || name === '스위프트') {
+   languageObject["Swift"] += countObject[name];
   } else if (name === 'rust' || name === '러스트') {
    languageObject["Rust"] += countObject[name];
   } else if (name === 'kotlin' || name === '코틀린') {
