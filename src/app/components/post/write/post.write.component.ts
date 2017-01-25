@@ -76,7 +76,11 @@ export class PostWriteComponent implements OnInit {
     this.authService.getSession()
       .take(1)
       .subscribe(session => {
-        this.user = session.auth
+        if (!session) {
+          alert('로그인해주세요!');
+          this.route.navigate(['/']);
+        }
+        this.user = session.auth;
 
         this.http.get(`${Github.API_USER}/${session.auth.providerData[0].uid}`).subscribe(res => {
           this.user.githubURL = res.json().html_url; // hard coding.. for getting githubURL
