@@ -4,7 +4,23 @@ const fs = require('fs');
 
 const text = fs.readFileSync('./results.txt', 'utf8');
 
-const languageArray = ['Javascript', 'HTML', 'CSS', 'C++', 'C#', 'C', 'Python', 'Ruby' ,'GO', 'Haskell', 'Java', 'Scala', 'Perl', 'Swift', 'Rust', 'Kotlin', 'LISP', 'PHP'];
+const languageArray = [
+  'Javascript','HTML', 'CSS', 'C++', 'C#', 'C', 'Python', 'Ruby' ,'GO', 'Haskell',
+  'Java', 'Scala', 'Perl', 'Swift', 'Rust', 'Kotlin', 'LISP', 'PHP',
+];
+
+const languageSynonyms = {
+  자바스크립트: 'javascript',
+  ecmascript: 'javascript',
+  c언어: 'c',
+  파이썬: 'python',
+  루비: 'ruby',
+  자바: 'java',
+  스칼라: 'scala',
+  스위프트: 'swift',
+  러스트: 'rust',
+  코틀린: 'kotlin',
+};
 
 const languageObject = {};
 
@@ -12,9 +28,19 @@ _.forEach(languageArray, data => {
   languageObject[data] = 0;
 })
 
-const languageRegex = /javascript|자바스크립트|ecmascript|html|css|(c\+\+)|(c\#)|\bc\b|c언어|python|파이썬|ruby|루비|\bgo\b|haskell|하스켈|java|자바|scala|스칼라|perl|swift|스위프트|rust|러스트|Kotlin|코틀린|lisp|php/g;
+const makeRegExpFromArray = (array) =>
+  new RegExp(
+    array.map((word) => {
+      const result = _.toLower(word).replace(/\+/, '\\+');
 
-const languages = _.toLower(text).match(languageRegex);
+      return /^(c|go)$/.test(result) ? `\\b${result}\\b` : result;
+    }).join('|'),
+    'g',
+  );
+
+const languageRegExp = makeRegExpFromArray([...languageArray, ...Object.keys(languageSynonyms)]);
+
+const languages = _.toLower(text).match(languageRegExp);
 
 const countObject = _.countBy(languages);
 
