@@ -39,13 +39,17 @@
               <a href="#!email"><span class="white-text email">{{user?.email}}</span></a>
             </div>
           </li>
-          <li id="sign-in-button" (click)="onLoginButtonClick()" [class.activate]="!isLoggedIn"><a>Login with <span class="custom-icon icon-github-alt"></span></a></li>
+          <div *ngIf="!isLoggedIn">
+            <li id="sign-in-button" (click)="onLoginButtonClick()" [class.activate]="!isLoggedIn"><a>Login with <span class="custom-icon icon-github-alt"></span></a></li>
+          </div>
           <!-- <li><a href="#!">내가 쓴 회고</a></li>
           <li><a href="#!">내가 좋아한 회고</a></li>
           <li>
             <div class="divider"></div>
           </li> -->
-          <li id="sign-out-button" (click)="onLogoutButtonClick()" [class.activate]="isLoggedIn"><a class="waves-effect">Logout</a></li>
+          <div *ngIf="isLoggedIn">
+            <li id="sign-out-button" (click)="onLogoutButtonClick()" [class.activate]="isLoggedIn"><a class="waves-effect">Logout</a></li>
+          </div>
         </ul>
         <a href="#" data-activates="slide-out" class="menu button-collapse"><span class="icon-th-menu"></span></a>
       </div>
