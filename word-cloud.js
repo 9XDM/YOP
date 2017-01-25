@@ -35,7 +35,12 @@ TwitterKoreanProcessor.normalize(text).then(result => {
 
       const sliceData = cloudData.slice(0, LIMIT_WORDS_NUMBER);
 
-      return fs.writeFile('./src/data/nouns.json', JSON.stringify(sliceData), (err) => {
+      const dir = __dirname + '/src/data';
+       
+      if (!fs.existsSync(dir))
+        fs.mkdirSync(dir); 
+
+      return fs.writeFile(`${dir}/nouns.json`, JSON.stringify(sliceData), (err) => {
         if(err) throw err;
         console.log('Nouns File write completed');
       })
