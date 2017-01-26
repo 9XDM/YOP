@@ -39,7 +39,7 @@ const makeRegExpFromArray = (array) =>
 
       return /^(c|go)$/.test(result) ? `\\b${result}\\b` : result;
     }).join('|'),
-    'g',
+    'g'
   );
 
 const languageRegExp = makeRegExpFromArray([...languageArray, ...Object.keys(languageSynonyms)]);
