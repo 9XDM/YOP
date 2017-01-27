@@ -4,7 +4,27 @@ const fs = require('fs');
 
 const text = fs.readFileSync('./results.txt', 'utf8');
 
-const languageArray = ['Javascript', 'HTML', 'CSS', 'C++', 'C#', 'C', 'Python', 'Ruby' ,'GO', 'Haskell', 'Java', 'Scala', 'Perl', 'Swift', 'Rust', 'Kotlin', 'LISP', 'PHP'];
+const languageArray = [
+  'Javascript', 'TypeScript', 'HTML', 'CSS', 'C++', 'C#', 'C', 'Python', 'Ruby' ,'GO',
+  'Haskell', 'Java', 'Scala', 'Perl', 'Swift', 'Rust', 'Kotlin', 'LISP', 'Elixir', 'PHP',
+];
+
+const lowerCasedLanguageArray = languageArray.map((language) => _.toLower(language));
+
+const languageSynonyms = {
+  자바스크립트: 'javascript',
+  ecmascript: 'javascript',
+  타입스크립트: 'typescript',
+  c언어: 'c',
+  파이썬: 'python',
+  루비: 'ruby',
+  자바: 'java',
+  스칼라: 'scala',
+  스위프트: 'swift',
+  러스트: 'rust',
+  엘릭서: 'elixir',
+  코틀린: 'kotlin',
+};
 
 const languageObject = {};
 
@@ -12,9 +32,19 @@ _.forEach(languageArray, data => {
   languageObject[data] = 0;
 })
 
-const laguageRegex = /javascript|자바스크립트|ecmascript|html|css|(c\+\+)|(c\#)|\bc\b|c언어|python|파이썬|ruby|루비|\bgo\b|haskell|하스켈|java|자바|scala|스칼라|perl|swift|스위프트|rust|러스트|Kotlin|코틀린|lisp|php/g;
+const makeRegExpFromArray = (array) =>
+  new RegExp(
+    array.map((word) => {
+      const result = _.toLower(word).replace(/\+/, '\\+');
 
-const languages = _.toLower(text).match(laguageRegex);
+      return /^(c|go)$/.test(result) ? `\\b${result}\\b` : result;
+    }).join('|'),
+    'g'
+  );
+
+const languageRegExp = makeRegExpFromArray([...languageArray, ...Object.keys(languageSynonyms)]);
+
+const languages = _.toLower(text).match(languageRegExp);
 
 const countObject = _.countBy(languages);
 
@@ -33,51 +63,20 @@ const colorScheme = {
     "C#": "#FFB563",
     "CSS": "#F9DE79",
     "Javascript": "#FFCE56",
+    "TypeScript": "#41C1C1",
     "Python": "#5a96c4",
     "LISP": "#8BC34A",
     "Haskell": "#29b544",
+    "Elixir": "#543462",
     "C++": "#415F9D",
     "Etc": "#E7E9ED"
 };
 
-_.forEach(countObject, (count, name) => {
-  if (name === 'javascript' || name === '자바스크립트' || name === 'ecmascript') {
-   languageObject["Javascript"] += countObject[name];
-  } else if (name === 'html') {
-   languageObject["HTML"] += countObject[name];
-  } else if (name === 'css') {
-   languageObject["CSS"] += countObject[name];
-  } else if (name === 'c++') {
-   languageObject["C++"] += countObject[name];
-  } else if (name === 'c#') {
-   languageObject["C#"] += countObject[name];
-  } else if (name === 'c' || name === 'c언어') {
-   languageObject["C"] += countObject[name];
-  } else if (name === 'python' || name === '파이썬') {
-   languageObject["Python"] += countObject[name];
-  } else if (name === 'ruby' || name === '루비') {
-   languageObject["Ruby"] += countObject[name];
-  } else if (name === 'go') {
-   languageObject["GO"] += countObject[name];
-  } else if (name === 'haskell' || name === '하스켈') {
-   languageObject["Haskell"] += countObject[name];
-  } else if (name === 'java' || name === '자바') {
-   languageObject["Java"] += countObject[name];
-  } else if (name === 'scala' || name === '스칼라') {
-   languageObject["Scala"] += countObject[name];
-  } else if (name === 'perl') {
-   languageObject["Perl"] += countObject[name];
-  } else if (name === 'Swift' || name === '스위프트') {
-   languageObject["swift"] += countObject[name];
-  } else if (name === 'rust' || name === '러스트') {
-   languageObject["Rust"] += countObject[name];
-  } else if (name === 'kotlin' || name === '코틀린') {
-   languageObject["Kotlin"] += countObject[name];
-  } else if (name === 'lisp') {
-   languageObject["LISP"] += countObject[name];
-  } else if (name === 'php') {
-   languageObject["PHP"] += countObject[name];
-  }
+_.forEach(countObject, (_count, name) => {
+  const keyIndex = lowerCasedLanguageArray.indexOf(languageSynonyms[name] || name);
+  const key = languageArray[keyIndex];
+
+  languageObject[key] += countObject[name];
 })
 
 function sortObject(obj) {
@@ -86,8 +85,8 @@ function sortObject(obj) {
   for (let prop in obj) {
     if (obj.hasOwnProperty(prop)) {
       arr.push({
-        'key': prop,
-        'value': obj[prop]
+        key: prop,
+        value: obj[prop]
       });
     }
   }
