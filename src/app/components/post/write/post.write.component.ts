@@ -5,7 +5,7 @@ import {FirebaseObjectObservable} from "angularfire2";
 import {Post} from "../../../model/post.model";
 import {AuthService} from "../../../service/auth.service";
 import {User} from "../../../model/user.model";
-import {ImageResult, ResizeOptions} from "ng2-imageupload";
+import {ImageResult } from "ng2-imageupload";
 import * as firebase from 'firebase';
 import {Github} from "../../../constant";
 import {Http} from "@angular/http";
@@ -74,12 +74,7 @@ export class PostWriteComponent implements OnInit {
       });
 
     this.authService.getSession()
-      .take(1)
       .subscribe(session => {
-        if (!session) {
-          alert('로그인해주세요!');
-          this.route.navigate(['/']);
-        }
         this.user = session.auth;
 
         this.http.get(`${Github.API_USER}/${session.auth.providerData[0].uid}`).subscribe(res => {

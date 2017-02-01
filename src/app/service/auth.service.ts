@@ -1,12 +1,13 @@
 import {AngularFire, AuthProviders, AuthMethods, FirebaseAuthState} from "angularfire2";
 import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class AuthService {
   private behaviorSubject: BehaviorSubject<FirebaseAuthState> = new BehaviorSubject<FirebaseAuthState>(null);
 
-  constructor(private af: AngularFire) {
+  constructor(private af: AngularFire, private router: Router) {
     this.af.auth.subscribe(authState => {
       this.behaviorSubject.next(authState)
     });
@@ -31,7 +32,7 @@ export class AuthService {
 
   logout() {
     this.af.auth.logout().then(() => {
-      location.reload();
+      this.router.navigate(['/posts'])
     });
   }
 }

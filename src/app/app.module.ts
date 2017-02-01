@@ -17,6 +17,8 @@ import {RemoveMarkdownPipe} from "./pipe/remove-markdown.pipe";
 import {ReversePipe} from "./pipe/reverse.pipe";
 import {IsLikedPipe} from "./components/post/list/post.like.pipe";
 import { ImageUploadModule } from 'ng2-imageupload';
+import {AuthGuard} from "./service/auth.guard";
+import {PostConfirmGuard} from "./components/post/write/post.confirm.guard";
 
 // Must export the config
 export const firebaseConfig = {
@@ -51,7 +53,8 @@ export const firebaseConfig = {
     ImageUploadModule
   ],
   // 서비스 injection
-  providers: [AuthService],
+  // TODO: PostModule로 분기하기
+  providers: [AuthService, AuthGuard, PostConfirmGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
