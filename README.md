@@ -30,8 +30,15 @@ $ node data-mining.js
 $ node language-chart-data.js
 $ node word-cloud.js
 
-# 앵귤러 빌드
+# 앵귤러 개발용 서버 구동
 $ ng serve
+
+# 앵귤러 빌드
+$ ng build
+
+# 앵귤러 프로덕션 빌드 
+$ ng build --prod
+
 ```
 - `data-mining.js`: firebase를 이용해서 모든 Posts data의 body를 parsing하고 `results.txt`로 저장합니다.
 단 firebase config 설정을 미리 하셔야합니다.
