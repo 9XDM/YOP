@@ -5,10 +5,11 @@ import {FirebaseObjectObservable} from "angularfire2";
 import {Post} from "../../../model/post.model";
 import {AuthService} from "../../../service/auth.service";
 import {User} from "../../../model/user.model";
-import {ImageResult } from "ng2-imageupload";
+import {ImageResult} from "ng2-imageupload";
 import * as firebase from 'firebase';
 import {Github} from "../../../constant";
 import {Http} from "@angular/http";
+import {SlackHookService} from "../../../service/slack.hook.service";
 
 firebase.initializeApp({
   apiKey: "AIzaSyDRWInNTqMZMkbbFxeJfbjHN3dwSZLJbKI",
@@ -24,7 +25,7 @@ const storageRef = firebase.storage().ref();
 
 @Component({
   selector: 'post-write-component',
-  providers: [PostService],
+  providers: [PostService, SlackHookService],
   templateUrl: 'post.write.component.html',
 })
 
@@ -38,9 +39,12 @@ export class PostWriteComponent implements OnInit {
   body: String;
   simpleMde: any;
   originalURL: String = "";
+
+  isSaved: boolean = false;
   isModified: boolean = false;
 
   constructor(private activatedRouter: ActivatedRoute,
+              private slackHookService: SlackHookService,
               private postService: PostService,
               private authService: AuthService,
               private http: Http,
@@ -91,7 +95,9 @@ export class PostWriteComponent implements OnInit {
     }
     this.postService.writePost(this.title, this.simpleMde.value(), this.originalURL, this.imageSrc, this.user)
       .then(() => {
+        this.isSaved = true;
         alert('회고 작성이 완료 되었습니다.');
+        this.slackHookService.sendMessage(`${this.user.displayName}님의 회고글이 작성되었습니다.`).subscribe();
         this.route.navigate(['/']);
       });
   }
@@ -104,6 +110,7 @@ export class PostWriteComponent implements OnInit {
     }
     this.postService.modifyPost(this.postKey, this.title, this.simpleMde.value(), this.imageSrc, this.originalURL)
       .then(() => {
+        this.isSaved = true;
         alert('회고 수정이 완료 되었습니다.');
         this.route.navigate(['/']);
       });
