@@ -112,7 +112,7 @@ export class PostDetailComponent implements OnInit {
       this.postService.deletePost(this.postKey)
         .then(() => {
           alert('삭제가 완료 되었습니다.');
-          location.replace('/');
+          this.route.navigate(['/posts/'])
         })
         .catch(err => {
           alert('삭제에 실패 했습니다.');
