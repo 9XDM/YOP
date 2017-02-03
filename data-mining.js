@@ -23,6 +23,7 @@ ref.once('value').then(snapshot => {
   bodyArray = _.join(bodyArray, ' ');
   return fs.writeFile('./results.txt', bodyArray, function(err) {
     if(err) throw err;
-    console.log('File write completed');
+    console.log('DataMining File write completed');
+    process.exit()
   });
 })

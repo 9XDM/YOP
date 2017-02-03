@@ -144,5 +144,5 @@ if (!fs.existsSync(dir)){
 
 fs.writeFile(`${dir}/chart-data.json`, JSON.stringify(chartData), function(err) {
   if(err) throw err;
-  console.log('File write completed');
+  console.log('ChartData File write completed');
 });
